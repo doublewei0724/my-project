@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input,
+select,
+button,
+textarea {
+  font-family: inherit;
+}
+html body {
+  background: #1a1d29;
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+}
+body::-webkit-scrollbar {
+  width: 6px;
+  background: #000;
+}
+body::-webkit-scrollbar-thumb {
+  width: 6px;
+  background: #4f5572;
+  border-radius: 99px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #e6e6ee;
+}
+.mainContent {
+  width: 100%;
+  margin: 0 auto;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+select option {
+  background-color: #262934;
+  color: white;
+}
+.van-toast__text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}

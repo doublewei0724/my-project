@@ -1,0 +1,83 @@
+{
+  "header": {
+    "home": "Home",
+    "login": "Login",
+    "logout": "Logout",
+    "user": "User"
+  },
+  "login": {
+    "title": "Member Login",
+    "desc": "Please enter your credentials",
+    "username": "Username",
+    "password": "Password",
+    "placeholder_user": "Enter username",
+    "placeholder_pass": "Enter password",
+    "confirm": "Confirm Login",
+    "loading": "Logging in...",
+    "success": "Login successful",
+    "logout_success": "Logged out",
+    "fail": "Login failed, check credentials",
+    "empty_error": "Please enter credentials",
+    "test_account": "Test Account"
+  },
+  "home": {
+    "title": "My Portfolio",
+    "subtitle_1": "A showcase of my developed projects",
+    "subtitle_2": "Core Tech Stack:",
+    "viewProject": "View Project"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "currency": {
+    "title": "Real-time Currency Converter",
+    "desc": "Real-time currency rates via API, supporting multi-currency conversion and formatting.",
+    "amount": "Amount",
+    "from": "From",
+    "to": "To",
+    "result": "Result",
+    "updateTime": "Last Updated"
+  },
+  "currencies": {
+    "TWD": "Taiwan Dollar",
+    "NZD": "New Zealand Dollar",
+    "USD": "US Dollar",
+    "JPY": "Japanese Yen",
+    "EUR": "Euro",
+    "GBP": "British Pound",
+    "KRW": "South Korean Won",
+    "HKD": "Hong Kong Dollar",
+    "CNY": "Chinese Yuan",
+    "SGD": "Singapore Dollar"
+  },
+  "wheel": {
+    "title": "Lucky Wheel"
+  },
+  "lottery": {
+    "title": "Lottery System"
+  },
+  "products": {
+    "title": "E-Commerce",
+    "loading": "Loading...",
+    "error_load": "Failed to load",
+    "add_to_cart": "Add to cart",
+    "add_to_cart_success": "Added to cart",
+    "display_range": "Showing {start} - {end} items",
+    "default": "Default Sorting",
+    "lowToHigh": "Price: Low to High",
+    "highToLow": "Price: High to Low",
+    "all": "All",
+    "mens": "Men's Clothing",
+    "jewelery": "Jewelery",
+    "electronics": "Electronics",
+    "womens": "Women's Clothing",
+    "cart": "Shopping Cart",
+    "empty": "Your cart is currently empty",
+    "go_shopping": "Go Shopping",
+    "total_amount": "Total Amount",
+    "checkout": "Checkout Now",
+    "checkout_success": "Checkout successful! Thank you for your purchase.",
+    "remove_confirm_title": "Confirm Removal",
+    "remove_confirm_msg": "Are you sure you want to remove this item from the cart?"
+  }
+}

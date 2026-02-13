@@ -1,0 +1,83 @@
+{
+  "header": {
+    "home": "首頁",
+    "login": "登入",
+    "logout": "登出",
+    "user": "用戶"
+  },
+  "login": {
+    "title": "會員登入",
+    "desc": "請輸入帳號密碼進行驗證",
+    "username": "帳號",
+    "password": "密碼",
+    "placeholder_user": "請輸入帳號",
+    "placeholder_pass": "請輸入密碼",
+    "confirm": "確認登入",
+    "loading": "登入中...",
+    "success": "登入成功",
+    "logout_success": "已成功登出",
+    "fail": "登入失敗，請檢查帳密",
+    "empty_error": "請輸入帳號密碼",
+    "test_account": "測試帳號"
+  },
+  "home": {
+    "title": "我的作品集",
+    "subtitle_1": "這裡記錄了我開發的各項專案",
+    "subtitle_2": "使用到的核心技術：",
+    "viewProject": "查看作品"
+  },
+  "footer": {
+    "rights": "保留所有權利"
+  },
+  "currency": {
+    "title": "全球即時匯率換算",
+    "desc": "介接即時匯率 API，支援多國貨幣快速換算與數值格式化。",
+    "amount": "輸入金額",
+    "from": "來源幣別",
+    "to": "目標幣別",
+    "result": "換算結果",
+    "updateTime": "最後更新時間"
+  },
+  "currencies": {
+    "TWD": "新台幣",
+    "NZD": "紐西蘭元",
+    "USD": "美金",
+    "JPY": "日圓",
+    "EUR": "歐元",
+    "GBP": "英鎊",
+    "KRW": "韓元",
+    "HKD": "港幣",
+    "CNY": "人民幣",
+    "SGD": "新加坡元"
+  },
+  "wheel": {
+    "title": "幸運大轉盤"
+  },
+  "lottery": {
+    "title": "即時彩票系統"
+  },
+  "products": {
+    "title": "電商商城",
+    "loading": "載入中...",
+    "error_load": "載入失敗",
+    "add_to_cart": "加入購物車",
+    "add_to_cart_success": "已加入購物車",
+    "display_range": "顯示第 {start} - {end} 筆",
+    "default": "預設排序",
+    "lowToHigh": "價格：低到高",
+    "highToLow": "價格：高到低",
+    "all": "全部",
+    "mens": "男裝",
+    "jewelery": "珠寶",
+    "electronics": "電子產品",
+    "womens": "女裝",
+    "cart": "購物車",
+    "empty": "購物車目前是空的",
+    "go_shopping": "去逛逛商品",
+    "total_amount": "總計金額",
+    "checkout": "立即結帳",
+    "checkout_success": "結帳成功！感謝您的購買",
+    "remove_confirm_title": "確認移除",
+    "remove_confirm_msg": "確定要將此商品移出購物車嗎？"
+  }
+}

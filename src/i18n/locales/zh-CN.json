@@ -1,0 +1,83 @@
+{
+  "header": {
+    "home": "首页",
+    "login": "登录",
+    "logout": "退出",
+    "user": "用户"
+  },
+  "login": {
+    "title": "会员登录",
+    "desc": "请输入账号密码进行验证",
+    "username": "账号",
+    "password": "密码",
+    "placeholder_user": "请输入账号",
+    "placeholder_pass": "请输入密码",
+    "confirm": "确认登录",
+    "loading": "登录中...",
+    "success": "登录成功",
+    "logout_success": "已成功退出",
+    "fail": "登录失败，请检查账号密码",
+    "empty_error": "请输入账号密码",
+    "test_account": "测试账号"
+  },
+  "home": {
+    "title": "我的作品集",
+    "subtitle_1": "这里记录了我开发的各项项目",
+    "subtitle_2": "使用到的核心技术：",
+    "viewProject": "查看作品"
+  },
+  "footer": {
+    "rights": "保留所有权利"
+  },
+  "currency": {
+    "title": "全球即時汇率换算",
+    "desc": "接入即时汇率 API，支持多国货币快速换算与数值格式化。",
+    "amount": "输入金额",
+    "from": "来源币别",
+    "to": "目标币别",
+    "result": "换算结果",
+    "updateTime": "最后更新时间"
+  },
+  "currencies": {
+    "TWD": "新台币",
+    "NZD": "新西兰元",
+    "USD": "美元",
+    "JPY": "日圆",
+    "EUR": "欧元",
+    "GBP": "英镑",
+    "KRW": "韩元",
+    "HKD": "港币",
+    "CNY": "人民币",
+    "SGD": "新加坡元"
+  },
+  "wheel": {
+    "title": "幸运大转盘"
+  },
+  "lottery": {
+    "title": "即时彩票系统"
+  },
+  "products": {
+    "title": "电商商城",
+    "loading": "加载中...",
+    "error_load": "加载失败",
+    "add_to_cart": "加入购物车",
+    "add_to_cart_success": "已加入购物车",
+    "display_range": "显示第 {start} - {end} 笔",
+    "default": "默认排序",
+    "lowToHigh": "价格：低到高",
+    "highToLow": "价格：高到低",
+    "all": "全部",
+    "mens": "男装",
+    "jewelery": "珠宝",
+    "electronics": "电子产品",
+    "womens": "女装",
+    "cart": "购物车",
+    "empty": "购物车目前是空的",
+    "go_shopping": "去逛逛商品",
+    "total_amount": "总计金额",
+    "checkout": "立即结账",
+    "checkout_success": "结账成功！感谢您的购买",
+    "remove_confirm_title": "确认移除",
+    "remove_confirm_msg": "确定要将此商品移出购物车吗？"
+  }
+}
