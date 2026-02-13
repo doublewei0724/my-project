@@ -4,7 +4,8 @@ import { URL, fileURLToPath } from 'node:url'
 import tailwindcss from 'tailwindcss'
 import { defineConfig } from 'vite'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/my-project/' : '/',
   plugins: [vue()],
   resolve: {
     alias: {
@@ -17,4 +18,13 @@ export default defineConfig({
       plugins: [tailwindcss(), autoprefixer()],
     },
   },
-})
+  build: {
+    rollupOptions: {
+      output: {
+        sanitizeFileName(name) {
+          return name.replace(/^_/, '')
+        },
+      },
+    },
+  },
+}))

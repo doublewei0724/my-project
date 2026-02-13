@@ -45,7 +45,7 @@ const projects: Project[] = [
     <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
       <div
         v-for="project in projects"
-        :key="project.path"
+        :key="project.name"
         class="group overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
       >
         <div class="flex h-48 items-center justify-center bg-gradient-to-r from-blue-400 to-indigo-500">
