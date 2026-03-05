@@ -5,7 +5,6 @@ import { useUserStore } from '@/stores/user'
 import Cart from '@/views/Cart.vue'
 import CurrencyView from '@/views/CurrencyView.vue'
 import HomeView from '@/views/HomeView.vue'
-import Lottery from '@/views/Lottery.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
 import ProductList from '@/views/ProductList.vue'
 import Wheel from '@/views/Wheel.vue'
@@ -39,11 +38,6 @@ const router = createRouter({
               path: 'wheel',
               name: 'wheel',
               component: Wheel,
-            },
-            {
-              path: 'lottery',
-              name: 'lottery',
-              component: Lottery,
             },
             {
               path: 'products',

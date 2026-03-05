@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { FerrisWheel, RefreshCw, ShoppingCart, TicketPercent } from 'lucide-vue-next'
+import { FerrisWheel, RefreshCw, ShoppingCart } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
@@ -25,11 +25,6 @@ const projects: Project[] = [
     titleKey: 'wheel.title',
     name: 'wheel',
     icon: FerrisWheel,
-  },
-  {
-    titleKey: 'lottery.title',
-    name: 'lottery',
-    icon: TicketPercent,
   },
 ]
 </script>
