@@ -3,15 +3,15 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { showDialog } from 'vant'
 
-interface Prize {
-  name: string
-  color: string
-}
-
 const { t } = useI18n()
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const isSpinning = ref(false)
 const canvasSize = ref(300)
+
+interface Prize {
+  name: string
+  color: string
+}
 
 const prizes = computed<Prize[]>(() => [
   { name: `100 USDT`, color: '#FF6B6B' },
@@ -37,26 +37,45 @@ const updateCanvasSize = () => {
   setTimeout(() => drawWheel(), 0)
 }
 
-onMounted(async () => {
-  updateCanvasSize()
-  window.addEventListener('resize', updateCanvasSize)
-  await document.fonts.ready
-  drawWheel()
-})
+/**
+ * 文字斷行輔助函數 (正統 TS 寫法)
+ */
+const getLines = (ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] => {
+  // 判斷是否為英文（含空格），決定斷行策略
+  const isEnglish = text.includes(' ')
+  const parts = isEnglish ? text.split(' ') : text.split('')
 
-onUnmounted(() => {
-  window.removeEventListener('resize', updateCanvasSize)
-})
+  const lines: string[] = []
+  let currentLine = ''
 
-const drawWheel = () => {
+  parts.forEach((part) => {
+    // 英文需要補空格，中文不需要
+    const spacer = isEnglish && currentLine !== '' ? ' ' : ''
+    const testLine = currentLine + spacer + part
+    const metrics = ctx.measureText(testLine)
+
+    if (metrics.width > maxWidth && currentLine !== '') {
+      lines.push(currentLine)
+      currentLine = part
+    } else {
+      currentLine = testLine
+    }
+  })
+
+  if (currentLine) lines.push(currentLine)
+  return lines
+}
+
+const drawWheel = (): void => {
   const canvas = canvasRef.value
   if (!canvas) return
-  const ctx = canvas.getContext('2d')
+
+  const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d')
   if (!ctx) return
 
-  const cw = canvas.width
-  const ch = canvas.height
-  const rad = cw / 2
+  const cw: number = canvas.width
+  const ch: number = canvas.height
+  const rad: number = cw / 2
 
   ctx.clearRect(0, 0, cw, ch)
 
@@ -65,17 +84,18 @@ const drawWheel = () => {
     ['#ffffff', '#d9c9a3'],
   ]
 
-  prizes.value.forEach((prize, i) => {
-    const startAngle = currentRotation + i * arc.value
-    const endAngle = startAngle + arc.value
-    const centerAngle = startAngle + arc.value / 2
+  prizes.value.forEach((prize: Prize, i: number) => {
+    const startAngle: number = currentRotation + i * arc.value
+    const endAngle: number = startAngle + arc.value
+    const centerAngle: number = startAngle + arc.value / 2
 
-    // 1. 繪製背景扇區
+    // --- 1. 繪製背景扇區 ---
     ctx.save()
-    const theme = colorThemes[i % 2]!
+    const [colorStart, colorEnd] = colorThemes[i % 2]!
     const gradient = ctx.createRadialGradient(rad, rad, rad * 0.1, rad, rad, rad)
-    gradient.addColorStop(0, theme[0])
-    gradient.addColorStop(1, theme[1])
+    gradient.addColorStop(0, colorStart)
+    gradient.addColorStop(1, colorEnd)
+
     ctx.beginPath()
     ctx.fillStyle = gradient
     ctx.moveTo(rad, rad)
@@ -87,52 +107,28 @@ const drawWheel = () => {
     ctx.stroke()
     ctx.restore()
 
-    // 2. 繪製多行文字
+    // --- 2. 繪製多行文字 ---
     ctx.save()
     ctx.translate(rad, rad)
-    ctx.rotate(centerAngle)
-    ctx.rotate(Math.PI / 2) // 旋轉 90 度
+    ctx.rotate(centerAngle + Math.PI / 2) // 合併旋轉
 
-    const fontSize = Math.max(10, canvasSize.value / 25)
+    const fontSize: number = Math.max(10, canvasSize.value / 25)
     ctx.font = `900 ${fontSize}px 'Inter', 'Noto Sans TC', sans-serif`
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
     ctx.fillStyle = i % 2 === 0 ? '#ffffff' : '#961e31'
 
-    // 設定換行寬度限制 (扇區寬度的 80%)
-    const maxWidth = arc.value * rad * 0.8
-    const words = prize.name.split(' ')
-    let lines = []
-    let currentLine = words[0]
+    // 計算斷行：源頭即確定為 string[]
+    const maxWidth: number = arc.value * rad * 0.8
+    const lines: string[] = getLines(ctx, prize.name, maxWidth)
 
-    // 英文斷行邏輯
-    if (words.length > 1) {
-      for (let n = 1; n < words.length; n++) {
-        const testLine = currentLine + ' ' + words[n]
-        const metrics = ctx.measureText(testLine)
-        if (metrics.width > maxWidth && n > 0) {
-          lines.push(currentLine)
-          currentLine = words[n]
-        } else {
-          currentLine = testLine
-        }
-      }
-      lines.push(currentLine)
-    } else {
-      // 中文或單詞太長，直接給值
-      lines = [prize.name]
-    }
+    const textOffset: number = rad * 0.75
+    const lineHeight: number = fontSize * 1.1
 
-    // 計算文字位置
-    const textOffset = rad * 0.75
-    const lineHeight = fontSize * 1.1 // 行高
-
-    lines.forEach((line, index) => {
-      if (line !== undefined) {
-        // 雙重保證解決 TS 報錯
-        const yPos = -textOffset + (index - (lines.length - 1) / 2) * lineHeight
-        ctx.fillText(line, 0, yPos)
-      }
+    // 這裡不再需要 if (line) 判斷，因為型別已鎖定
+    lines.forEach((line: string, index: number) => {
+      const yOffset: number = (index - (lines.length - 1) / 2) * lineHeight
+      ctx.fillText(line, 0, -textOffset + yOffset)
     })
 
     ctx.restore()
@@ -183,6 +179,17 @@ const spin = () => {
   }
   requestAnimationFrame(animate)
 }
+
+onMounted(async () => {
+  updateCanvasSize()
+  window.addEventListener('resize', updateCanvasSize)
+  await document.fonts.ready
+  drawWheel()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateCanvasSize)
+})
 
 watch(
   prizes,
