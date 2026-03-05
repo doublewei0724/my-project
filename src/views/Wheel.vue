@@ -128,9 +128,11 @@ const drawWheel = () => {
     const lineHeight = fontSize * 1.1 // 行高
 
     lines.forEach((line, index) => {
-      // 根據行數調整垂直偏移量，確保文字群體居中
-      const yPos = -textOffset + (index - (lines.length - 1) / 2) * lineHeight
-      ctx.fillText(line, 0, yPos)
+      if (line !== undefined) {
+        // 雙重保證解決 TS 報錯
+        const yPos = -textOffset + (index - (lines.length - 1) / 2) * lineHeight
+        ctx.fillText(line, 0, yPos)
+      }
     })
 
     ctx.restore()
