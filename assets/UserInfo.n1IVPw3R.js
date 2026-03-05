@@ -1,0 +1,1 @@
+import{d as o,o as n,c as a,e as t,t as r}from"./index.Cp-iox02.js";const l={class:"text-white"},d=o({__name:"UserInfo",props:{id:{}},setup(s){return(i,e)=>(n(),a("div",l,[e[0]||(e[0]=t("h2",{class:"mb-4 text-xl font-bold"},"用戶資訊",-1)),t("p",null,"ID: "+r(s.id),1)]))}});export{d as default};

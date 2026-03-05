@@ -1,1 +1,0 @@
-import{d as o,o as a,c as n,a as e,t as r}from"./index.QKjcTpEY.js";const l={class:"text-white"},d=o({__name:"UserInfo",props:{id:{}},setup(s){return(i,t)=>(a(),n("div",l,[t[0]||(t[0]=e("h2",{class:"mb-4 text-xl font-bold"},"用戶資訊",-1)),e("p",null,"ID: "+r(s.id),1)]))}});export{d as default};
