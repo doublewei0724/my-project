@@ -7,6 +7,19 @@ import { defineConfig } from 'vite'
 export default defineConfig(() => ({
   base: '/my-project/',
   plugins: [vue()],
+  build: {
+    modulePreload: {
+      polyfill: true,
+    },
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: `assets/[name].[hash].[ext]`,
+      },
+    },
+    assetsDir: 'assets',
+  },
   resolve: {
     alias: {
       // 將 @ 指向 src 目錄

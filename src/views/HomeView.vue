@@ -59,7 +59,10 @@ const projects: Project[] = [
           <h2 class="text-xl font-bold text-gray-800">{{ t(project.titleKey) }}</h2>
           <div class="flex-grow"></div>
           <router-link
-            :to="{ name: project.name, params: { lang: $route.params.lang } }"
+            :to="{
+              name: project.name,
+              params: { lang: $route.params.lang || 'zh-TW' },
+            }"
             class="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
           >
             {{ t('home.viewProject') }}
