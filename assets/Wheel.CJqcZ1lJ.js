@@ -1,0 +1,1 @@
+import{_ as t}from"./_plugin-vue_export-helper.DlAUqK2U.js";import{c as o,a as s,o as n}from"./index.QKjcTpEY.js";const r={},c={class:"mainContent"};function a(i,e){return n(),o("div",c,[...e[0]||(e[0]=[s("div",{class:"mt-20 text-center text-white"},"轉盤作品開發中",-1)])])}const d=t(r,[["render",a]]);export{d as default};
