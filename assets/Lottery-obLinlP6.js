@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{c as o,a as s,o as r}from"./index-BpYbQQZv.js";const n={},c={class:"mainContent"};function a(i,t){return r(),o("div",c,[...t[0]||(t[0]=[s("div",{class:"mt-20 text-center text-white"},"彩票作品開發中",-1)])])}const d=e(n,[["render",a]]);export{d as default};
