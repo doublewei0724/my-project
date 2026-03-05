@@ -1,0 +1,82 @@
+{
+  "header": {
+    "home": "ホーム",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "user": "ユーザー"
+  },
+  "login": {
+    "title": "会員ログイン",
+    "desc": "ユーザー名とパスワードを入力してください",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "placeholder_user": "ユーザー名を入力",
+    "placeholder_pass": "パスワードを入力",
+    "confirm": "ログインする",
+    "loading": "ログイン中...",
+    "success": "ログインに成功しました",
+    "logout_success": "ログアウトしました",
+    "fail": "ログイン失敗。内容を確認してください",
+    "empty_error": "ユーザー名とパスワードを入力してください",
+    "test_account": "テストアカウント"
+  },
+  "home": {
+    "title": "ポートフォリオ",
+    "subtitle_1": "これまでに開発したプロジェクトの記録です",
+    "subtitle_2": "採用している主な技術：",
+    "viewProject": "プロジェクトを見る"
+  },
+  "footer": {
+    "rights": "著作権所有"
+  },
+  "currency": {
+    "title": "リアルタイム為替レート換算",
+    "desc": "リアルタイム為替レートAPIと連携し、多通貨の迅速な換算とフォーマットに対応。",
+    "amount": "金額入力",
+    "from": "変換元",
+    "to": "変換先",
+    "result": "換算結果",
+    "updateTime": "最終更新日時"
+  },
+  "currencies": {
+    "TWD": "台湾ドル",
+    "NZD": "ニュージーランド・ドル",
+    "USD": "アメリカ・ドル",
+    "JPY": "日本円",
+    "EUR": "ユーロ",
+    "GBP": "イギリス・ポンド",
+    "KRW": "韓国ウォン",
+    "HKD": "香港ドル",
+    "CNY": "中国元",
+    "SGD": "シンガポール・ドル"
+  },
+  "wheel": {
+    "title": "ラッキーホイール",
+    "betterLuck": "また次回！",
+    "congrats": "おめでとうございます！"
+  },
+  "products": {
+    "title": "オンラインショップ",
+    "loading": "読み込み中...",
+    "error_load": "読み込み失敗",
+    "add_to_cart": "カートに入れる",
+    "add_to_cart_success": "カートに追加されました",
+    "display_range": "{start} - {end} 件を表示中",
+    "default": "標準順",
+    "lowToHigh": "価格の安い順",
+    "highToLow": "価格の高い順",
+    "all": "すべて",
+    "mens": "メンズファッション",
+    "jewelery": "ジュエリー",
+    "electronics": "家電・電子機器",
+    "womens": "レディースファッション",
+    "cart": "ショッピングカート",
+    "empty": "カートは空です",
+    "go_shopping": "商品を見に行く",
+    "total_amount": "合計金額",
+    "checkout": "購入手続きへ",
+    "checkout_success": "注文が完了しました。ありがとうございます！",
+    "remove_confirm_title": "削除の確認",
+    "remove_confirm_msg": "この商品をカートから削除してもよろしいですか？"
+  }
+}

@@ -34,7 +34,7 @@ const projects: Project[] = [
     <header class="mx-auto mb-12 max-w-6xl text-center">
       <h1 class="mb-4 text-4xl font-bold text-white">{{ t('home.title') }}</h1>
       <p class="text-white opacity-90">{{ t('home.subtitle_1') }},{{ t('home.subtitle_2') }}</p>
-      <p class="text-indigo-200/60">Vite, Vue 3, TypeScript, Pinia, Tailwind CSS, Vant</p>
+      <p class="text-indigo-200/60">Vite, Vue 3, TypeScript, Pinia, Tailwind CSS, Vant, Canvas</p>
     </header>
 
     <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">

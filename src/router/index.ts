@@ -77,7 +77,7 @@ const router = createRouter({
 router.beforeEach((to, _from, next) => {
   const userStore = useUserStore()
   const { lang } = to.params
-  const supportedLangs = ['zh-TW', 'zh-CN', 'en']
+  const supportedLangs = ['zh-TW', 'zh-CN', 'en', 'ja']
 
   // 獲取瀏覽器語系,沒有就預設zh-TW
   if (!lang || !supportedLangs.includes(lang as string)) {

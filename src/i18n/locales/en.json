@@ -7,31 +7,31 @@
   },
   "login": {
     "title": "Member Login",
-    "desc": "Please enter your credentials",
+    "desc": "Please enter your credentials to verify",
     "username": "Username",
     "password": "Password",
     "placeholder_user": "Enter username",
     "placeholder_pass": "Enter password",
-    "confirm": "Confirm Login",
+    "confirm": "Login",
     "loading": "Logging in...",
     "success": "Login successful",
-    "logout_success": "Logged out",
-    "fail": "Login failed, check credentials",
-    "empty_error": "Please enter credentials",
+    "logout_success": "Logged out successfully",
+    "fail": "Login failed, please check your credentials",
+    "empty_error": "Please enter username and password",
     "test_account": "Test Account"
   },
   "home": {
     "title": "My Portfolio",
-    "subtitle_1": "A showcase of my developed projects",
+    "subtitle_1": "A showcase of various projects I've developed.",
     "subtitle_2": "Core Tech Stack:",
     "viewProject": "View Project"
   },
   "footer": {
-    "rights": "All rights reserved"
+    "rights": "All Rights Reserved"
   },
   "currency": {
-    "title": "Real-time Currency Converter",
-    "desc": "Real-time currency rates via API, supporting multi-currency conversion and formatting.",
+    "title": "Global Real-time Exchange Rates",
+    "desc": "Connected to real-time exchange rate APIs, supporting multi-currency conversion and formatting.",
     "amount": "Amount",
     "from": "From",
     "to": "To",
@@ -39,44 +39,43 @@
     "updateTime": "Last Updated"
   },
   "currencies": {
-    "TWD": "Taiwan Dollar",
-    "NZD": "New Zealand Dollar",
-    "USD": "US Dollar",
-    "JPY": "Japanese Yen",
-    "EUR": "Euro",
-    "GBP": "British Pound",
-    "KRW": "South Korean Won",
-    "HKD": "Hong Kong Dollar",
-    "CNY": "Chinese Yuan",
-    "SGD": "Singapore Dollar"
+    "TWD": "TWD",
+    "NZD": "NZD",
+    "USD": "USD",
+    "JPY": "JPY",
+    "EUR": "EUR",
+    "GBP": "GBP",
+    "KRW": "KRW",
+    "HKD": "HKD",
+    "CNY": "CNY",
+    "SGD": "SGD"
   },
   "wheel": {
-    "title": "Lucky Wheel"
-  },
-  "lottery": {
-    "title": "Lottery System"
+    "title": "Lucky Wheel",
+    "betterLuck": "Better luck next time",
+    "congrats": "Congratulations!"
   },
   "products": {
-    "title": "E-Commerce",
+    "title": "E-commerce Store",
     "loading": "Loading...",
     "error_load": "Failed to load",
-    "add_to_cart": "Add to cart",
+    "add_to_cart": "Add to Cart",
     "add_to_cart_success": "Added to cart",
-    "display_range": "Showing {start} - {end} items",
+    "display_range": "Showing {start} - {end}",
     "default": "Default Sorting",
     "lowToHigh": "Price: Low to High",
     "highToLow": "Price: High to Low",
     "all": "All",
     "mens": "Men's Clothing",
-    "jewelery": "Jewelery",
+    "jewelery": "Jewelry",
     "electronics": "Electronics",
     "womens": "Women's Clothing",
-    "cart": "Shopping Cart",
-    "empty": "Your cart is currently empty",
+    "cart": "Cart",
+    "empty": "Your cart is empty",
     "go_shopping": "Go Shopping",
     "total_amount": "Total Amount",
-    "checkout": "Checkout Now",
-    "checkout_success": "Checkout successful! Thank you for your purchase.",
+    "checkout": "Checkout",
+    "checkout_success": "Checkout successful! Thank you for your purchase",
     "remove_confirm_title": "Confirm Removal",
     "remove_confirm_msg": "Are you sure you want to remove this item from the cart?"
   }

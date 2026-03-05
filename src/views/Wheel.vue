@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { showDialog } from 'vant'
 
@@ -13,43 +13,41 @@ const canvasRef = ref<HTMLCanvasElement | null>(null)
 const isSpinning = ref(false)
 const canvasSize = ref(300)
 
-// 獎項資料
-const prizes: Prize[] = [
-  { name: '100 點數', color: '#FF6B6B' },
-  { name: '再接再厲', color: '#4ECDC4' },
-  { name: '50 點數', color: '#FFE66D' },
-  { name: '免費咖啡', color: '#1A535C' },
-  { name: '10 點數', color: '#F7FFF7' },
-  { name: '200 點數', color: '#FF9F1C' },
-  { name: '神秘小禮', color: '#7067CF' },
-  { name: '神秘小禮', color: '#FF9F1C' },
-]
+const prizes = computed<Prize[]>(() => [
+  { name: `100 USDT`, color: '#FF6B6B' },
+  { name: t('wheel.betterLuck'), color: '#4ECDC4' },
+  { name: `50 USDT`, color: '#FFE66D' },
+  { name: t('wheel.betterLuck'), color: '#1A535C' },
+  { name: `20 USDT`, color: '#F7FFF7' },
+  { name: t('wheel.betterLuck'), color: '#FF9F1C' },
+  { name: `10 USDT`, color: '#7067CF' },
+  { name: t('wheel.betterLuck'), color: '#FF9F1C' },
+])
 
-const numSectors = prizes.length
-const arc = (2 * Math.PI) / numSectors
+const numSectors = computed(() => prizes.value.length)
+const arc = computed(() => (2 * Math.PI) / numSectors.value)
 
-// --- 關鍵設定：初始角度讓第一格中心對準 12 點鐘 ---
-let currentRotation = -Math.PI / 2 - arc / 2
+// 初始角度
+let currentRotation = -Math.PI / 2 - (2 * Math.PI) / 8 / 2
 
-// 響應式尺寸計算
 const updateCanvasSize = () => {
-  const padding = 60 // 預留邊框空間
+  const padding = 60
   const screenWidth = window.innerWidth - padding
   canvasSize.value = Math.min(screenWidth, 500)
-  // 尺寸改變後需要重新繪製
   setTimeout(() => drawWheel(), 0)
 }
 
-onMounted(() => {
+onMounted(async () => {
   updateCanvasSize()
   window.addEventListener('resize', updateCanvasSize)
+  await document.fonts.ready
+  drawWheel()
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', updateCanvasSize)
 })
 
-// --- 繪圖邏輯 ---
 const drawWheel = () => {
   const canvas = canvasRef.value
   if (!canvas) return
@@ -62,61 +60,83 @@ const drawWheel = () => {
 
   ctx.clearRect(0, 0, cw, ch)
 
-  // --- 優化後的配色：拉大對比度 ---
   const colorThemes: [string, string][] = [
     ['#e62e4d', '#7a1425'],
     ['#ffffff', '#d9c9a3'],
   ]
 
-  prizes.forEach((prize, i) => {
-    const angle = currentRotation + i * arc
+  prizes.value.forEach((prize, i) => {
+    const startAngle = currentRotation + i * arc.value
+    const endAngle = startAngle + arc.value
+    const centerAngle = startAngle + arc.value / 2
+
+    // 1. 繪製背景扇區
     ctx.save()
-
     const theme = colorThemes[i % 2]!
-    const colorStart = theme[0]
-    const colorEnd = theme[1]
-
-    // 使用徑向漸層 (Radial Gradient) ---
-    // 參數：中心X, 中心Y, 起始半徑, 結束X, 結束Y, 結束半徑
-    // 讓顏色從圓心向外擴散，會比線性漸層明顯非常多
     const gradient = ctx.createRadialGradient(rad, rad, rad * 0.1, rad, rad, rad)
-    gradient.addColorStop(0, colorStart) // 中心較亮
-    gradient.addColorStop(1, colorEnd) // 邊緣較深
-
+    gradient.addColorStop(0, theme[0])
+    gradient.addColorStop(1, theme[1])
     ctx.beginPath()
     ctx.fillStyle = gradient
     ctx.moveTo(rad, rad)
-    ctx.arc(rad, rad, rad, angle, angle + arc)
+    ctx.arc(rad, rad, rad, startAngle, endAngle)
     ctx.lineTo(rad, rad)
     ctx.fill()
-
-    // 繪製分隔線
     ctx.strokeStyle = '#785323'
     ctx.lineWidth = 1
     ctx.stroke()
+    ctx.restore()
 
-    // 繪製文字
+    // 2. 繪製多行文字
     ctx.save()
     ctx.translate(rad, rad)
-    ctx.rotate(angle + arc / 2)
-    ctx.textAlign = 'right'
+    ctx.rotate(centerAngle)
+    ctx.rotate(Math.PI / 2) // 旋轉 90 度
 
-    // 文字顏色優化
+    const fontSize = Math.max(10, canvasSize.value / 25)
+    ctx.font = `900 ${fontSize}px 'Inter', 'Noto Sans TC', sans-serif`
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
     ctx.fillStyle = i % 2 === 0 ? '#ffffff' : '#961e31'
 
-    const fontSize = Math.max(12, canvasSize.value / 22)
-    ctx.font = `900 ${fontSize}px sans-serif`
+    // 設定換行寬度限制 (扇區寬度的 80%)
+    const maxWidth = arc.value * rad * 0.8
+    const words = prize.name.split(' ')
+    let lines = []
+    let currentLine = words[0]
 
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.3)'
-    ctx.shadowBlur = 3
-    ctx.fillText(prize.name, rad - canvasSize.value * 0.08, 10)
+    // 英文斷行邏輯
+    if (words.length > 1) {
+      for (let n = 1; n < words.length; n++) {
+        const testLine = currentLine + ' ' + words[n]
+        const metrics = ctx.measureText(testLine)
+        if (metrics.width > maxWidth && n > 0) {
+          lines.push(currentLine)
+          currentLine = words[n]
+        } else {
+          currentLine = testLine
+        }
+      }
+      lines.push(currentLine)
+    } else {
+      // 中文或單詞太長，直接給值
+      lines = [prize.name]
+    }
 
-    ctx.restore()
+    // 計算文字位置
+    const textOffset = rad * 0.75
+    const lineHeight = fontSize * 1.1 // 行高
+
+    lines.forEach((line, index) => {
+      // 根據行數調整垂直偏移量，確保文字群體居中
+      const yPos = -textOffset + (index - (lines.length - 1) / 2) * lineHeight
+      ctx.fillText(line, 0, yPos)
+    })
+
     ctx.restore()
   })
 }
 
-// --- 旋轉邏輯 ---
 const spin = () => {
   if (isSpinning.value) return
   isSpinning.value = true
@@ -140,20 +160,18 @@ const spin = () => {
     } else {
       isSpinning.value = false
 
-      // --- 12 點鐘位置判定校準 ---
       const pointerAngle = -Math.PI / 2
       const actualRotation = currentRotation % (2 * Math.PI)
       let relativeAngle = pointerAngle - actualRotation
 
       while (relativeAngle < 0) relativeAngle += 2 * Math.PI
-      const prizeIndex = Math.floor(relativeAngle / arc) % numSectors
+      const prizeIndex = Math.floor(relativeAngle / arc.value) % numSectors.value
 
-      const winningPrizeObj = prizes[prizeIndex]
+      const winningPrizeObj = prizes.value[prizeIndex]
 
-      // 檢查物件是否存在 (解決 TS undefined 報錯)
       if (winningPrizeObj) {
         showDialog({
-          title: t('wheel.congrats'),
+          // title: t('wheel.congrats'),
           message: winningPrizeObj.name,
           theme: 'round-button',
           confirmButtonColor: '#4f46e5',
@@ -163,6 +181,14 @@ const spin = () => {
   }
   requestAnimationFrame(animate)
 }
+
+watch(
+  prizes,
+  () => {
+    drawWheel()
+  },
+  { deep: true },
+)
 </script>
 
 <template>

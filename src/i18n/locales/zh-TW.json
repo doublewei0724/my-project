@@ -51,13 +51,12 @@
     "SGD": "新加坡元"
   },
   "wheel": {
-    "title": "幸運大轉盤"
-  },
-  "lottery": {
-    "title": "即時彩票系統"
+    "title": "轉盤遊戲",
+    "betterLuck": "再接再厲",
+    "congrats": "恭喜中獎"
   },
   "products": {
-    "title": "電商商城",
+    "title": "購物商城",
     "loading": "載入中...",
     "error_load": "載入失敗",
     "add_to_cart": "加入購物車",

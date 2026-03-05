@@ -2,7 +2,7 @@
   "header": {
     "home": "首页",
     "login": "登录",
-    "logout": "退出",
+    "logout": "登出",
     "user": "用户"
   },
   "login": {
@@ -15,8 +15,8 @@
     "confirm": "确认登录",
     "loading": "登录中...",
     "success": "登录成功",
-    "logout_success": "已成功退出",
-    "fail": "登录失败，请检查账号密码",
+    "logout_success": "已成功登出",
+    "fail": "登录失败，请检查账密",
     "empty_error": "请输入账号密码",
     "test_account": "测试账号"
   },
@@ -30,8 +30,8 @@
     "rights": "保留所有权利"
   },
   "currency": {
-    "title": "全球即時汇率换算",
-    "desc": "接入即时汇率 API，支持多国货币快速换算与数值格式化。",
+    "title": "全球实时汇率换算",
+    "desc": "接入实时汇率 API，支持多国货币快速换算与数值格式化。",
     "amount": "输入金额",
     "from": "来源币别",
     "to": "目标币别",
@@ -42,7 +42,7 @@
     "TWD": "新台币",
     "NZD": "新西兰元",
     "USD": "美元",
-    "JPY": "日圆",
+    "JPY": "日元",
     "EUR": "欧元",
     "GBP": "英镑",
     "KRW": "韩元",
@@ -51,21 +51,20 @@
     "SGD": "新加坡元"
   },
   "wheel": {
-    "title": "幸运大转盘"
-  },
-  "lottery": {
-    "title": "即时彩票系统"
+    "title": "转盘游戏",
+    "betterLuck": "再接再厉",
+    "congrats": "恭喜中奖"
   },
   "products": {
-    "title": "电商商城",
+    "title": "购物商城",
     "loading": "加载中...",
     "error_load": "加载失败",
     "add_to_cart": "加入购物车",
     "add_to_cart_success": "已加入购物车",
-    "display_range": "显示第 {start} - {end} 笔",
+    "display_range": "显示第 {start} - {end} 条",
     "default": "默认排序",
-    "lowToHigh": "价格：低到高",
-    "highToLow": "价格：高到低",
+    "lowToHigh": "价格：从低到高",
+    "highToLow": "价格：从高到低",
     "all": "全部",
     "mens": "男装",
     "jewelery": "珠宝",
