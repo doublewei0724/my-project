@@ -31,7 +31,7 @@
   },
   "currency": {
     "title": "全球实时汇率换算",
-    "desc": "接入实时汇率 API，支持多国货币快速换算与数值格式化。",
+    "desc": "整合 Exchange Rate API 实现全球实时汇率换算与动态币别切换。",
     "amount": "输入金额",
     "from": "来源币别",
     "to": "目标币别",
@@ -52,11 +52,13 @@
   },
   "wheel": {
     "title": "转盘游戏",
+    "desc": "基于原生 Canvas 开发的抽奖转盘，包含动态物理效果与概率演算。",
     "betterLuck": "再接再厉",
     "congrats": "恭喜中奖"
   },
   "products": {
     "title": "购物商城",
+    "desc": "使用 FakeStoreAPI 串接商品数据，并通过 Pinia 管理购物车与登录状态。",
     "loading": "加载中...",
     "error_load": "加载失败",
     "add_to_cart": "加入购物车",
@@ -78,5 +80,14 @@
     "checkout_success": "结账成功！感谢您的购买",
     "remove_confirm_title": "确认移除",
     "remove_confirm_msg": "确定要将此商品移出购物车吗？"
+  },
+  "crypto": {
+    "title": "币价走势",
+    "desc": "串接 CoinGecko API 并利用 ECharts 实现币价趋势图与图表类型切换。",
+    "subtitle": "來自 CoinGecko 的近 7 日价格数据",
+    "updating": "数据更新中...",
+    "price": "价格",
+    "select_coin": "选择币别",
+    "error": "获取数据失败"
   }
 }

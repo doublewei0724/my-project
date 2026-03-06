@@ -169,7 +169,7 @@ const spin = () => {
 
       if (winningPrizeObj) {
         showDialog({
-          // title: t('wheel.congrats'),
+          className: 'lucky-wheel-dialog',
           message: winningPrizeObj.name,
           theme: 'round-button',
           confirmButtonColor: '#4f46e5',
@@ -265,5 +265,12 @@ watch(
       inset 0 0 18px rgba(255, 255, 255, 1);
     transform: scale(1.005);
   }
+}
+</style>
+
+<style>
+.lucky-wheel-dialog .van-dialog__message {
+  font-size: 16px;
+  font-weight: bold;
 }
 </style>

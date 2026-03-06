@@ -31,7 +31,7 @@
   },
   "currency": {
     "title": "Global Real-time Exchange Rates",
-    "desc": "Connected to real-time exchange rate APIs, supporting multi-currency conversion and formatting.",
+    "desc": "Utilizes Exchange Rate API to deliver real-time global currency conversion and dynamic currency switching.",
     "amount": "Amount",
     "from": "From",
     "to": "To",
@@ -52,11 +52,13 @@
   },
   "wheel": {
     "title": "Lucky Wheel",
+    "desc": "A lucky wheel developed with native Canvas, featuring dynamic physics effects and probability logic.",
     "betterLuck": "Better luck next time",
     "congrats": "Congratulations!"
   },
   "products": {
     "title": "E-commerce Store",
+    "desc": "Integrates FakeStoreAPI for product data and manages shopping cart and authentication states via Pinia.",
     "loading": "Loading...",
     "error_load": "Failed to load",
     "add_to_cart": "Add to Cart",
@@ -78,5 +80,14 @@
     "checkout_success": "Checkout successful! Thank you for your purchase",
     "remove_confirm_title": "Confirm Removal",
     "remove_confirm_msg": "Are you sure you want to remove this item from the cart?"
+  },
+  "crypto": {
+    "title": "Price Trends",
+    "desc": "Connects to CoinGecko API and uses ECharts to implement price trend visualizations and chart type toggling.",
+    "subtitle": "Last 7 days price data from CoinGecko",
+    "updating": "Updating data...",
+    "price": "Price",
+    "select_coin": "Select Currency",
+    "error": "Failed to fetch data"
   }
 }

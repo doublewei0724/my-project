@@ -3,6 +3,7 @@ import i18n from '@/i18n'
 import LayoutDefault from '@/layouts/Default.vue'
 import { useUserStore } from '@/stores/user'
 import Cart from '@/views/Cart.vue'
+import Chart from '@/views/Chart.vue'
 import CurrencyView from '@/views/CurrencyView.vue'
 import HomeView from '@/views/HomeView.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
@@ -58,6 +59,11 @@ const router = createRouter({
               path: 'currency',
               name: 'currency',
               component: CurrencyView,
+            },
+            {
+              path: 'chart',
+              name: 'chart',
+              component: Chart,
             },
           ],
         },

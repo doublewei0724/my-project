@@ -13,16 +13,19 @@
   "dependencies": {
     "@vueuse/core": "^14.2.1",
     "axios": "^1.13.5",
+    "echarts": "^6.0.0",
     "lucide-vue-next": "^0.563.0",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
     "vant": "^4.9.22",
     "vue": "^3.5.25",
+    "vue-echarts": "^8.0.1",
     "vue-i18n": "^11.2.8",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/echarts": "^5.0.0",
     "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vue/tsconfig": "^0.8.1",

@@ -31,7 +31,7 @@
   },
   "currency": {
     "title": "リアルタイム為替レート換算",
-    "desc": "リアルタイム為替レートAPIと連携し、多通貨の迅速な換算とフォーマットに対応。",
+    "desc": "Exchange Rate APIを統合し、全世界のリアルタイム為替換算と動的な通貨切り替えを実現しました。",
     "amount": "金額入力",
     "from": "変換元",
     "to": "変換先",
@@ -52,11 +52,13 @@
   },
   "wheel": {
     "title": "ラッキーホイール",
+    "desc": "ネイティブのCanvas に基づいた抽選ホイール。動的な物理エフェクトと確率演算を搭載しています。",
     "betterLuck": "また次回！",
     "congrats": "おめでとうございます！"
   },
   "products": {
     "title": "オンラインショップ",
+    "desc": "FakeStoreAPIを使用して商品データを取得し、Piniaでカート機能とログイン状態を管理しています。",
     "loading": "読み込み中...",
     "error_load": "読み込み失敗",
     "add_to_cart": "カートに入れる",
@@ -78,5 +80,14 @@
     "checkout_success": "注文が完了しました。ありがとうございます！",
     "remove_confirm_title": "削除の確認",
     "remove_confirm_msg": "この商品をカートから削除してもよろしいですか？"
+  },
+  "crypto": {
+    "title": "価格推移",
+    "desc": "CoinGecko APIと連携し、EChartsを用いて価格推移チャートとグラフタイプの切り替え機能を実装しました。",
+    "subtitle": "CoinGeckoからの直近7日間の価格データ",
+    "updating": "データ更新中...",
+    "price": "価格",
+    "select_coin": "通貨を選択",
+    "error": "データの取得に失敗しました"
   }
 }
