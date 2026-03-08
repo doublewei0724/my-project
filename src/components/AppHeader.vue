@@ -44,7 +44,7 @@ const handleLogout = () => {
       class="flex cursor-pointer items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-white/90 shadow-sm backdrop-blur-md transition-all hover:bg-white/15 hover:text-white active:scale-95"
     >
       <House class="h-4 w-4" />
-      <span class="text-sm font-medium">{{ t('header.home') }}</span>
+      <span class="text-sm font-medium">{{ t('common.home') }}</span>
     </div>
     <div v-else></div>
 
@@ -56,7 +56,7 @@ const handleLogout = () => {
           class="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-white/90 backdrop-blur-md hover:bg-white/20"
         >
           <LogIn class="h-4 w-4" />
-          <span class="text-sm font-medium">{{ t('header.login') }}</span>
+          <span class="text-sm font-medium">{{ t('common.login') }}</span>
         </button>
 
         <div
@@ -65,7 +65,7 @@ const handleLogout = () => {
         >
           <!-- <div class="flex items-center gap-1 rounded-lg bg-white/10 px-2 py-1 text-white/90">
             <User class="h-4 w-4" />
-            <span class="text-sm">{{ t('header.user') }}</span>
+            <span class="text-sm">{{ t('common.user') }}</span>
           </div> -->
 
           <button
@@ -73,7 +73,7 @@ const handleLogout = () => {
             class="flex items-center gap-1 rounded-lg border border-red-500/50 bg-red-500/10 px-2 py-1 text-red-400 hover:bg-red-500/20"
           >
             <LogOut class="h-4 w-4" />
-            <span class="text-sm font-medium">{{ t('header.logout') }}</span>
+            <span class="text-sm font-medium">{{ t('common.logout') }}</span>
           </button>
         </div>
       </div>

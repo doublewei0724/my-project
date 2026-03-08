@@ -1,9 +1,10 @@
 {
-  "header": {
+  "common": {
     "home": "ホーム",
     "login": "ログイン",
     "logout": "ログアウト",
-    "user": "ユーザー"
+    "user": "ユーザー",
+    "confirm": "確認"
   },
   "login": {
     "title": "会員ログイン",
@@ -54,7 +55,13 @@
     "title": "ラッキーホイール",
     "desc": "ネイティブのCanvas に基づいた抽選ホイール。動的な物理エフェクトと確率演算を搭載しています。",
     "betterLuck": "また次回！",
-    "congrats": "おめでとうございます！"
+    "congrats": "おめでとうございます！",
+    "myRecords": "獲得履歴",
+    "loginToView": "ログインして履歴を確認する",
+    "historyTitle": "当選履歴",
+    "noRecords": "記録がありません",
+    "statusSuccess": "獲得済み",
+    "statusMissed": "ハズレ"
   },
   "products": {
     "title": "オンラインショップ",

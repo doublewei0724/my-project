@@ -1,9 +1,10 @@
 {
-  "header": {
+  "common": {
     "home": "Home",
     "login": "Login",
     "logout": "Logout",
-    "user": "User"
+    "user": "User",
+    "confirm": "Confirm"
   },
   "login": {
     "title": "Member Login",
@@ -54,7 +55,13 @@
     "title": "Lucky Wheel",
     "desc": "A lucky wheel developed with native Canvas, featuring dynamic physics effects and probability logic.",
     "betterLuck": "Better luck next time",
-    "congrats": "Congratulations!"
+    "congrats": "Congratulations!",
+    "myRecords": "My Rewards",
+    "loginToView": "Please login to view records",
+    "historyTitle": "WINNING HISTORY",
+    "noRecords": "No records found",
+    "statusSuccess": "SUCCESS",
+    "statusMissed": "MISSED"
   },
   "products": {
     "title": "E-commerce Store",

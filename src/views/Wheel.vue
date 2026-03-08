@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { Clock } from 'lucide-vue-next'
 import { showDialog } from 'vant'
+import { usePopupStore } from '@/stores/popup'
+import { useUserStore } from '@/stores/user'
+import { useWheelStore } from '@/stores/wheel'
 
 const { t } = useI18n()
+const userStore = useUserStore()
+const popupStore = usePopupStore()
+const wheelStore = useWheelStore()
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const isSpinning = ref(false)
 const canvasSize = ref(300)
@@ -37,9 +44,6 @@ const updateCanvasSize = () => {
   setTimeout(() => drawWheel(), 0)
 }
 
-/**
- * 文字斷行輔助函數 (正統 TS 寫法)
- */
 const getLines = (ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] => {
   // 判斷是否為英文（含空格），決定斷行策略
   const isEnglish = text.includes(' ')
@@ -168,6 +172,9 @@ const spin = () => {
       const winningPrizeObj = prizes.value[prizeIndex]
 
       if (winningPrizeObj) {
+        // t('wheel.betterLuck') 的就是沒中
+        const isWin = !winningPrizeObj.name.includes(t('wheel.betterLuck'))
+        wheelStore.addRecord(winningPrizeObj.name, isWin)
         showDialog({
           className: 'lucky-wheel-dialog',
           message: winningPrizeObj.name,
@@ -178,6 +185,22 @@ const spin = () => {
     }
   }
   requestAnimationFrame(animate)
+}
+
+const handleGoToRecords = () => {
+  if (!userStore.isLogin) {
+    popupStore.openPopup('login')
+  } else {
+    spin()
+  }
+}
+
+const handleShowRecords = () => {
+  if (!userStore.isLogin) {
+    popupStore.openPopup('login')
+  } else {
+    popupStore.openPopup('wheelRecords')
+  }
 }
 
 onMounted(async () => {
@@ -218,7 +241,7 @@ watch(
         src="@/assets/images/luckySpin/pointer_center.png"
         class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer drop-shadow-xl transition-transform hover:scale-110 active:scale-95"
         :style="{ width: canvasSize * 0.22 + 'px' }"
-        @click="spin"
+        @click="handleGoToRecords()"
         alt="spin"
       />
 
@@ -228,6 +251,19 @@ watch(
         :height="canvasSize"
         class="relative z-0 overflow-hidden rounded-full transition-all duration-300"
       ></canvas>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center">
+      <button
+        @click="handleShowRecords"
+        class="record-btn flex items-center gap-2 rounded-full px-8 py-3 font-bold text-white transition-all active:scale-95"
+      >
+        <Clock
+          :size="18"
+          class="text-yellow-400"
+        />
+        {{ t('wheel.myRecords') }}
+      </button>
     </div>
   </div>
 </template>
@@ -265,6 +301,29 @@ watch(
       inset 0 0 18px rgba(255, 255, 255, 1);
     transform: scale(1.005);
   }
+}
+.record-btn {
+  background-color: #1a1d29;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.record-btn:hover {
+  background-color: #24283b;
+  border-color: rgba(253, 216, 53, 0.3);
+}
+.record-text {
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-shadow:
+    2px 2px 0px #000,
+    -1px -1px 0px #000,
+    1px -1px 0px #000,
+    -1px 1px 0px #000,
+    1px 1px 0px #000;
+  color: #ffffff;
+}
+:deep(.lucide-clock) {
+  filter: drop-shadow(0 0 2px rgba(253, 216, 53, 0.5));
 }
 </style>
 

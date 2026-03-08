@@ -12,9 +12,9 @@ import { useUserStore } from '@/stores/user'
 const router = useRouter()
 const cartStore = useCartStore()
 const userStore = useUserStore()
-const { t } = useI18n()
 const popupStore = usePopupStore()
 const route = useRoute()
+const { t } = useI18n()
 
 const products = ref<any[]>([])
 const loading = ref(true)

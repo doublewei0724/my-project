@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePopupStore } from '@/stores/popup'
 import LoginForm from './LoginForm.vue'
+import WheelRecords from './WheelRecords.vue'
 
 const popupStore = usePopupStore()
 const { isShow, currentPopup, popupProps } = storeToRefs(popupStore)
@@ -11,6 +12,8 @@ const activeComponent = computed(() => {
   switch (currentPopup.value) {
     case 'login':
       return LoginForm
+    case 'wheelRecords':
+      return WheelRecords
     default:
       return null
   }
@@ -34,6 +37,7 @@ const activeComponent = computed(() => {
       :is="activeComponent"
       v-if="activeComponent"
       v-bind="popupProps"
+      @close="popupStore.closePopup"
     />
   </van-popup>
 </template>
