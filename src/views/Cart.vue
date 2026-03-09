@@ -35,7 +35,7 @@ const handleCheckout = () => {
 
 <template>
   <div class="mainContent text-white">
-    <div class="sticky top-14 z-[90] flex items-center justify-between py-4 backdrop-blur-md">
+    <div class="flex items-center justify-between py-4 backdrop-blur-md">
       <button
         @click="router.back()"
         class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5"

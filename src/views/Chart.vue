@@ -36,13 +36,12 @@ const fetchCryptoData = async () => {
     const themeColor = activeCoin?.color || '#6366f1'
 
     chartOptions.value = {
-      // 1. 全局字體顏色與背景透明
       backgroundColor: 'transparent',
       textStyle: { color: 'rgba(255, 255, 255, 0.7)' },
 
       tooltip: {
         trigger: 'axis',
-        backgroundColor: 'rgba(30, 34, 48, 0.9)', // 深色提示框
+        backgroundColor: 'rgba(30, 34, 48, 0.9)',
         borderWidth: 1,
         borderColor: 'rgba(255, 255, 255, 0.1)',
         padding: [10, 15],
@@ -99,7 +98,6 @@ const fetchCryptoData = async () => {
             color: themeColor,
             borderRadius: [4, 4, 0, 0],
           },
-          // 2. 霓虹漸層效果
           areaStyle:
             chartType.value === 'line'
               ? {
@@ -132,11 +130,11 @@ onMounted(() => fetchCryptoData())
 </script>
 
 <template>
-  <div class="mainContent px-4 py-8 md:px-0">
+  <div class="mainContent py-8">
     <div
-      class="overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1e2230]/60 p-6 shadow-2xl backdrop-blur-xl md:p-10"
+      class="overflow-hidden rounded-xl border border-white/10 bg-[#1e2230]/60 p-4 shadow-2xl backdrop-blur-xl sm:p-8"
     >
-      <div class="mb-10 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+      <div class="mb-6 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
         <div>
           <h2 class="text-2xl font-black tracking-tight text-white sm:text-3xl">{{ $t('crypto.title') }}</h2>
           <div class="mt-1 flex items-center gap-2">
@@ -148,14 +146,14 @@ onMounted(() => fetchCryptoData())
           </div>
         </div>
 
-        <div class="flex w-full items-center gap-4 sm:w-auto">
+        <div class="flex w-full justify-between gap-2 sm:w-auto">
           <div class="flex rounded-2xl border border-white/5 bg-black/30 p-1.5">
             <button
               @click="chartType = 'line'"
               :class="[
                 chartType === 'line' ? 'bg-indigo-600 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300',
               ]"
-              class="flex items-center justify-center rounded-xl px-4 py-2 transition-all duration-300"
+              class="flex items-center justify-center rounded-xl p-2 transition-all duration-300"
             >
               <LineIcon :size="18" />
             </button>
@@ -164,29 +162,39 @@ onMounted(() => fetchCryptoData())
               :class="[
                 chartType === 'bar' ? 'bg-indigo-600 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300',
               ]"
-              class="flex items-center justify-center rounded-xl px-4 py-2 transition-all duration-300"
+              class="flex items-center justify-center rounded-xl p-2 transition-all duration-300"
             >
               <BarIcon :size="18" />
             </button>
           </div>
 
-          <select
-            v-model="selectedCoin"
-            class="flex-1 appearance-none rounded-2xl border border-white/5 bg-black/30 px-6 py-3 text-sm font-bold text-gray-300 outline-none transition-all focus:ring-2 focus:ring-indigo-500 sm:flex-none"
-          >
-            <option
-              v-for="coin in coinList"
-              :key="coin.id"
-              :value="coin.id"
-              class="bg-[#1e2230]"
-            >
-              {{ coin.name }} ({{ coin.symbol }})
-            </option>
-          </select>
+          <div class="flex w-auto gap-4">
+            <div class="relative inline-grid">
+              <span class="invisible col-start-1 row-start-1 px-8 py-2 text-sm font-bold">
+                {{ coinList.find((c) => c.id === selectedCoin)?.name }} ({{
+                  coinList.find((c) => c.id === selectedCoin)?.symbol
+                }})
+              </span>
+
+              <select
+                v-model="selectedCoin"
+                class="col-start-1 row-start-1 w-full appearance-none rounded-lg border border-white/5 bg-black/30 p-2 text-sm font-bold text-gray-300 outline-none transition-all focus:ring-2 focus:ring-indigo-500"
+              >
+                <option
+                  v-for="coin in coinList"
+                  :key="coin.id"
+                  :value="coin.id"
+                  class="bg-[#1e2230]"
+                >
+                  {{ coin.name }} ({{ coin.symbol }})
+                </option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="relative h-[400px] w-full rounded-3xl border border-white/5 bg-black/20 p-4">
+      <div class="relative h-[400px] w-full rounded-3xl border border-white/5 bg-black/20">
         <div
           v-if="loading"
           class="absolute inset-0 z-20 flex items-center justify-center rounded-3xl bg-[#1e2230]/40 backdrop-blur-md"
@@ -211,7 +219,6 @@ onMounted(() => fetchCryptoData())
 </template>
 
 <style scoped>
-/* 自定義下拉選單小箭頭 */
 select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236366f1' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
