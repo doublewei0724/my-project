@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 import { FerrisWheel, LineChart as LineIcon, RefreshCw, ShoppingCart } from 'lucide-vue-next'
 import ProjectCard from '@/components/ProjectCard.vue'
-
-const { t } = useI18n()
 
 const projects = [
   {
