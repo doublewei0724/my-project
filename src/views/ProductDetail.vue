@@ -49,8 +49,8 @@ onMounted(fetchProductDetail)
 </script>
 
 <template>
-  <div class="mainContent bg-[#1a1d29] text-white">
-    <div class="flex items-center justify-between bg-[#1a1d29] py-2">
+  <div class="mainContent text-white">
+    <div class="flex items-center justify-between py-2">
       <button
         @click="router.back()"
         class="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-colors hover:bg-white/10"

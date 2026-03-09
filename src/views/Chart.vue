@@ -33,23 +33,44 @@ const fetchCryptoData = async () => {
 
     const prices = data.prices
     const activeCoin = coinList.find((c) => c.id === selectedCoin.value)
+    const themeColor = activeCoin?.color || '#6366f1'
 
     chartOptions.value = {
+      // 1. 全局字體顏色與背景透明
+      backgroundColor: 'transparent',
+      textStyle: { color: 'rgba(255, 255, 255, 0.7)' },
+
       tooltip: {
         trigger: 'axis',
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        borderWidth: 0,
-        textStyle: { color: '#333' },
+        backgroundColor: 'rgba(30, 34, 48, 0.9)', // 深色提示框
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+        padding: [10, 15],
+        textStyle: { color: '#fff' },
         formatter: (params: any) => {
           const price = Number(params[0].value).toLocaleString('en-US', { minimumFractionDigits: 2 })
-          return `<div class="text-xs text-gray-500">${params[0].name}</div>
-                  <div class="font-bold text-gray-800">$${price}</div>`
+          return `<div class="text-[10px] opacity-50 mb-1">${params[0].name}</div>
+                  <div class="font-bold flex items-center gap-2">
+                    <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${themeColor}"></span>
+                    $${price}
+                  </div>`
         },
       },
-      grid: { left: '2%', right: '4%', bottom: '15%', top: '10%', containLabel: true },
+      grid: { left: '3%', right: '4%', bottom: '15%', top: '10%', containLabel: true },
       dataZoom: [
-        { type: 'inside', start: 70, end: 100 },
-        { type: 'slider', height: 18, bottom: 5 },
+        { type: 'inside', start: 60, end: 100 },
+        {
+          type: 'slider',
+          height: 20,
+          bottom: 5,
+          borderColor: 'transparent',
+          fillerColor: 'rgba(99, 102, 241, 0.1)',
+          dataBackground: {
+            lineStyle: { color: themeColor, opacity: 0.2 },
+            areaStyle: { color: themeColor, opacity: 0.1 },
+          },
+          handleStyle: { color: themeColor },
+        },
       ],
       xAxis: {
         type: 'category',
@@ -57,25 +78,28 @@ const fetchCryptoData = async () => {
           const d = new Date(p[0])
           return `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:00`
         }),
-        axisLabel: { color: '#9ca3af', fontSize: 10, rotate: 30 },
-        axisLine: { lineStyle: { color: '#e5e7eb' } },
+        axisLabel: { color: 'rgba(255, 255, 255, 0.5)', fontSize: 10 },
+        axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.1)' } },
+        axisTick: { show: false },
       },
       yAxis: {
         type: 'value',
         scale: true,
-        splitLine: { lineStyle: { color: '#f3f4f6', type: 'dashed' } },
-        axisLabel: { color: '#9ca3af', formatter: (value: number) => value.toLocaleString() },
+        splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.05)', type: 'dashed' } },
+        axisLabel: { color: 'rgba(255, 255, 255, 0.5)', formatter: (value: number) => `$${value.toLocaleString()}` },
       },
       series: [
         {
           data: prices.map((p: any) => p[1].toFixed(2)),
           type: chartType.value,
-          smooth: chartType.value === 'line',
+          smooth: true,
           showSymbol: false,
+          lineStyle: { width: 3, color: themeColor, shadowBlur: 10, shadowColor: themeColor },
           itemStyle: {
-            color: activeCoin?.color || '#3b82f6',
-            borderRadius: chartType.value === 'bar' ? [4, 4, 0, 0] : [0, 0, 0, 0],
+            color: themeColor,
+            borderRadius: [4, 4, 0, 0],
           },
+          // 2. 霓虹漸層效果
           areaStyle:
             chartType.value === 'line'
               ? {
@@ -86,18 +110,18 @@ const fetchCryptoData = async () => {
                     x2: 0,
                     y2: 1,
                     colorStops: [
-                      { offset: 0, color: activeCoin?.color },
-                      { offset: 1, color: 'rgba(255, 255, 255, 0)' },
+                      { offset: 0, color: themeColor },
+                      { offset: 1, color: 'transparent' },
                     ],
                   },
-                  opacity: 0.15,
+                  opacity: 0.2,
                 }
               : null,
         },
       ],
     }
   } catch (error) {
-    console.error('Fetch error:', error)
+    console.error(error)
   } finally {
     loading.value = false
   }
@@ -108,62 +132,90 @@ onMounted(() => fetchCryptoData())
 </script>
 
 <template>
-  <div class="min-h-[400px] bg-gray-50 p-4 font-sans md:p-8">
-    <div class="mx-auto rounded-3xl shadow-sm">
-      <div class="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+  <div class="mainContent px-4 py-8 md:px-0">
+    <div
+      class="overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1e2230]/60 p-6 shadow-2xl backdrop-blur-xl md:p-10"
+    >
+      <div class="mb-10 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
         <div>
-          <h2 class="text-xl font-bold text-gray-800">{{ $t('crypto.title') }}</h2>
-          <p class="text-sm text-gray-500">{{ $t('crypto.subtitle') }}</p>
+          <h2 class="text-2xl font-black tracking-tight text-white sm:text-3xl">{{ $t('crypto.title') }}</h2>
+          <div class="mt-1 flex items-center gap-2">
+            <span class="flex h-2 w-2 items-center justify-center">
+              <span class="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-indigo-500"></span>
+            </span>
+            <p class="text-xs font-medium uppercase tracking-widest text-gray-500">{{ $t('crypto.subtitle') }}</p>
+          </div>
         </div>
 
         <div class="flex w-full items-center gap-4 sm:w-auto">
-          <div class="flex rounded-xl bg-gray-100 p-1.5">
+          <div class="flex rounded-2xl border border-white/5 bg-black/30 p-1.5">
             <button
               @click="chartType = 'line'"
-              :class="[chartType === 'line' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-400 hover:text-gray-600']"
-              class="flex items-center justify-center rounded-lg p-2 transition-all"
-              title="Line Chart"
+              :class="[
+                chartType === 'line' ? 'bg-indigo-600 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300',
+              ]"
+              class="flex items-center justify-center rounded-xl px-4 py-2 transition-all duration-300"
             >
-              <LineIcon :size="20" />
+              <LineIcon :size="18" />
             </button>
             <button
               @click="chartType = 'bar'"
-              :class="[chartType === 'bar' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-400 hover:text-gray-600']"
-              class="flex items-center justify-center rounded-lg p-2 transition-all"
-              title="Bar Chart"
+              :class="[
+                chartType === 'bar' ? 'bg-indigo-600 text-white shadow-lg' : 'text-gray-500 hover:text-gray-300',
+              ]"
+              class="flex items-center justify-center rounded-xl px-4 py-2 transition-all duration-300"
             >
-              <BarIcon :size="20" />
+              <BarIcon :size="18" />
             </button>
           </div>
 
           <select
             v-model="selectedCoin"
-            class="flex-1 rounded-xl border border-gray-100 bg-gray-50 px-4 py-2.5 text-sm font-semibold text-gray-700 outline-none transition-all focus:ring-2 focus:ring-blue-100 sm:flex-none"
+            class="flex-1 appearance-none rounded-2xl border border-white/5 bg-black/30 px-6 py-3 text-sm font-bold text-gray-300 outline-none transition-all focus:ring-2 focus:ring-indigo-500 sm:flex-none"
           >
             <option
               v-for="coin in coinList"
               :key="coin.id"
               :value="coin.id"
+              class="bg-[#1e2230]"
             >
-              {{ coin.name }}({{ coin.symbol }})
+              {{ coin.name }} ({{ coin.symbol }})
             </option>
           </select>
         </div>
       </div>
 
-      <div class="relative h-[350px] w-full rounded-2xl bg-gray-50/30">
+      <div class="relative h-[400px] w-full rounded-3xl border border-white/5 bg-black/20 p-4">
         <div
           v-if="loading"
-          class="absolute inset-0 z-20 flex items-center justify-center rounded-2xl bg-white/60 backdrop-blur-sm"
+          class="absolute inset-0 z-20 flex items-center justify-center rounded-3xl bg-[#1e2230]/40 backdrop-blur-md"
         >
-          <div class="h-8 w-8 animate-spin rounded-full border-b-2 border-blue-500"></div>
+          <div
+            class="h-10 w-10 animate-spin rounded-full border-b-2 border-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.5)]"
+          ></div>
         </div>
+
         <v-chart
           :option="chartOptions"
           autoresize
           class="h-full w-full"
         />
       </div>
+
+      <!-- <p class="mt-6 text-center text-[10px] uppercase tracking-widest text-gray-600">
+        Real-time market data powered by Coingecko API
+      </p> -->
     </div>
   </div>
 </template>
+
+<style scoped>
+/* 自定義下拉選單小箭頭 */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236366f1' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+</style>

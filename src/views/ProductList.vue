@@ -103,7 +103,7 @@ onMounted(fetchProducts)
 
 <template>
   <div class="mainContent">
-    <div class="flex items-center justify-between bg-[#1a1d29] py-2">
+    <div class="flex items-center justify-between py-2">
       <div>
         <h1 class="text-xl font-bold text-white">{{ t('products.title') }}</h1>
       </div>
@@ -125,7 +125,7 @@ onMounted(fetchProducts)
     <van-tabs
       v-model:active="activeTab"
       :ellipsis="false"
-      background="#1a1d29"
+      background="transparent"
       title-active-color="#fff"
       title-inactive-color="#94a3b8"
     >

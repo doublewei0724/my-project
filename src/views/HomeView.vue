@@ -1,78 +1,51 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { FerrisWheel, LineChart as LineIcon, RefreshCw, ShoppingCart } from 'lucide-vue-next'
+import ProjectCard from '@/components/ProjectCard.vue'
 
 const { t } = useI18n()
 
-interface Project {
-  titleKey: string
-  descriptionKey: string
-  name: string
-  icon: any
-}
-
-const projects: Project[] = [
+const projects = [
   {
     titleKey: 'products.title',
     descriptionKey: 'products.desc',
     name: 'products',
     icon: ShoppingCart,
+    color: 'from-blue-500/20 to-indigo-500/20',
   },
   {
     titleKey: 'currency.title',
     descriptionKey: 'currency.desc',
     name: 'currency',
     icon: RefreshCw,
+    color: 'from-emerald-500/20 to-teal-500/20',
   },
   {
     titleKey: 'wheel.title',
     descriptionKey: 'wheel.desc',
     name: 'wheel',
     icon: FerrisWheel,
+    color: 'from-orange-500/20 to-red-500/20',
   },
   {
     titleKey: 'crypto.title',
     descriptionKey: 'crypto.desc',
     name: 'chart',
     icon: LineIcon,
+    color: 'from-purple-500/20 to-pink-500/20',
   },
 ]
 </script>
 
 <template>
-  <div class="mainContent px-6 sm:px-0">
-    <!-- <header class="mx-auto mb-12 max-w-6xl text-center">
-      <h1 class="mb-4 text-4xl font-bold text-white">{{ t('home.list') }}</h1>
-    </header> -->
-    <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-      <div
-        v-for="project in projects"
+  <div class="mainContent px-6 py-12">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <ProjectCard
+        v-for="(project, index) in projects"
         :key="project.name"
-        class="group flex flex-col overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-      >
-        <div class="flex h-48 shrink-0 items-center justify-center bg-gradient-to-r from-blue-400 to-indigo-500">
-          <component
-            :is="project.icon"
-            class="h-20 w-20 text-white transition-transform duration-500 group-hover:scale-110"
-          />
-        </div>
-        <div class="flex flex-1 flex-col p-6">
-          <h2 class="text-xl font-bold text-gray-800">{{ t(project.titleKey) }}</h2>
-          <p class="mt-2 text-sm leading-relaxed text-gray-500">
-            {{ t(project.descriptionKey) }}
-          </p>
-          <div class="flex-grow"></div>
-          <router-link
-            :to="{
-              name: project.name,
-              params: { lang: $route.params.lang || 'zh-TW' },
-            }"
-            class="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
-          >
-            {{ t('home.viewProject') }}
-          </router-link>
-        </div>
-      </div>
+        :project="project"
+        :index="index"
+      />
     </div>
   </div>
 </template>
