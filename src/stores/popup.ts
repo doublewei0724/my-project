@@ -14,7 +14,6 @@ export const usePopupStore = defineStore('popup', () => {
 
   const closePopup = () => {
     isShow.value = false
-    // 延遲清空，確保動畫跑完
     setTimeout(() => {
       currentPopup.value = null
       popupProps.value = {}

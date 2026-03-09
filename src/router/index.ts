@@ -16,64 +16,36 @@ declare module 'vue-router' {
   }
 }
 
+const SUPPORTED_LANGS = ['zh-TW', 'en', 'ja', 'ko']
+
 const router = createRouter({
   history: createWebHashHistory(),
-  scrollBehavior(_to, _from, _savedPosition) {
-    return { top: 0 }
-  },
+  scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
-      path: '/:lang(zh-TW|zh-CN|en)?',
+      path: '/:lang(zh-TW|en|ja|ko)?',
       component: RouterView,
       children: [
         {
           path: '',
           component: LayoutDefault,
           children: [
-            {
-              path: '',
-              name: 'home',
-              component: HomeView,
-            },
-            {
-              path: 'wheel',
-              name: 'wheel',
-              component: Wheel,
-            },
-            {
-              path: 'products',
-              name: 'products',
-              component: ProductList,
-            },
-            {
-              path: 'product/:id',
-              name: 'product-detail',
-              component: ProductDetail,
-            },
-            {
-              path: 'cart',
-              name: 'cart',
-              component: Cart,
-            },
-            {
-              path: 'currency',
-              name: 'currency',
-              component: CurrencyView,
-            },
-            {
-              path: 'chart',
-              name: 'chart',
-              component: Chart,
-            },
+            { path: '', name: 'home', component: HomeView },
+            { path: 'wheel', name: 'wheel', component: Wheel },
+            { path: 'products', name: 'products', component: ProductList },
+            { path: 'product/:id', name: 'product-detail', component: ProductDetail },
+            { path: 'cart', name: 'cart', component: Cart },
+            { path: 'currency', name: 'currency', component: CurrencyView },
+            { path: 'chart', name: 'chart', component: Chart },
           ],
         },
       ],
     },
     {
       path: '/:pathMatch(.*)*',
-      redirect: (_to) => {
+      redirect: () => {
         const nav = navigator.language
-        const browserLang = nav === 'zh-CN' ? 'zh-CN' : nav.includes('zh') ? 'zh-TW' : 'en'
+        const browserLang = nav.includes('ko') ? 'ko' : nav.includes('ja') ? 'ja' : nav.includes('zh') ? 'zh-TW' : 'en'
         return `/${browserLang}`
       },
     },
@@ -83,21 +55,18 @@ const router = createRouter({
 router.beforeEach((to, _from, next) => {
   const userStore = useUserStore()
   const { lang } = to.params
-  const supportedLangs = ['zh-TW', 'zh-CN', 'en', 'ja']
 
   // 獲取瀏覽器語系,沒有就預設zh-TW
-  if (!lang || !supportedLangs.includes(lang as string)) {
+  if (!lang || !SUPPORTED_LANGS.includes(lang as string)) {
     const nav = navigator.language
-    const defaultLang = nav === 'zh-CN' ? 'zh-CN' : nav.startsWith('zh') ? 'zh-TW' : 'en'
+    const defaultLang = nav.includes('ko') ? 'ko' : nav.includes('ja') ? 'ja' : nav.includes('zh') ? 'zh-TW' : 'en'
 
-    // 修正路徑處理，避免產生多餘斜線
     const cleanPath = to.path
       .split('/')
-      .filter((p) => p && !supportedLangs.includes(p))
+      .filter((p) => p && !SUPPORTED_LANGS.includes(p))
       .join('/')
 
     const targetPath = `/${defaultLang}/${cleanPath}`.replace(/\/+/g, '/')
-
     return next({ path: targetPath, query: to.query, replace: true })
   }
 

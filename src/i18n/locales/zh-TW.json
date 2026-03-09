@@ -4,7 +4,8 @@
     "login": "登入",
     "logout": "登出",
     "user": "用戶",
-    "confirm": "確定"
+    "confirm": "確定",
+    "dont_show_today": "今日不再顯示"
   },
   "login": {
     "title": "會員登入",
@@ -23,6 +24,7 @@
   },
   "home": {
     "title": "我的作品集",
+    "list": "作品列表",
     "subtitle_1": "這裡記錄了我開發的各項專案",
     "subtitle_2": "使用到的核心技術：",
     "viewProject": "查看作品"
@@ -53,14 +55,14 @@
   },
   "wheel": {
     "title": "轉盤遊戲",
-    "desc": "基於原生 Canvas 開發的抽獎轉盤，包含動態物理效果與機率演算。",
+    "desc": "基於原生 Canvas 開發的抽獎轉盤，包含中獎紀錄功能。",
     "betterLuck": "再接再厲",
     "congrats": "恭喜中獎",
     "myRecords": "我的中獎紀錄",
     "loginToView": "請先登入以查看紀錄",
     "historyTitle": "中獎紀錄",
     "noRecords": "目前尚無中獎紀錄",
-    "statusSuccess": "領取成功",
+    "statusSuccess": "已中獎",
     "statusMissed": "未中獎"
   },
   "products": {

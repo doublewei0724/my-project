@@ -21,7 +21,6 @@ const confirmRemove = (id: number) => {
     .catch(() => {})
 }
 
-// 結帳邏輯
 const handleCheckout = () => {
   showToast({
     message: t('products.checkout_success'),

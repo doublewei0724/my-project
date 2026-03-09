@@ -6,18 +6,17 @@ import { useWheelStore } from '@/stores/wheel'
 const { t } = useI18n()
 const wheelStore = useWheelStore()
 const { records } = storeToRefs(wheelStore)
-const getIsWin = (item: any) => item.isWin
 </script>
 
 <template>
   <div class="lucky-record-container w-full text-white">
     <div class="mb-6 text-center">
       <h3
-        class="bg-gradient-to-b from-yellow-200 to-yellow-500 bg-clip-text text-2xl font-black italic tracking-widest text-transparent"
+        class="bg-gradient-to-b from-white via-gray-100 to-gray-400 bg-clip-text text-2xl font-black italic tracking-widest text-transparent"
       >
         {{ t('wheel.historyTitle') }}
       </h3>
-      <div class="mx-auto mt-1 h-[2px] w-16 rounded-full bg-yellow-500 shadow-[0_0_8px_#f59e0b]"></div>
+      <div class="mx-auto mt-1 h-[2px] w-16 rounded-full bg-gray-300 shadow-[0_0_8px_rgba(255,255,255,0.5)]"></div>
     </div>
 
     <div
@@ -32,7 +31,7 @@ const getIsWin = (item: any) => item.isWin
         <div class="flex flex-col gap-1">
           <span
             class="text-lg font-bold tracking-wide transition-colors"
-            :class="getIsWin(item.prizeName) ? 'text-yellow-400' : 'text-gray-400'"
+            :class="item.isWin ? 'text-green-400' : 'text-gray-400'"
           >
             {{ item.prizeName }}
           </span>
@@ -44,7 +43,7 @@ const getIsWin = (item: any) => item.isWin
         <div class="flex flex-col items-end">
           <span
             v-if="item.isWin"
-            class="font-bold text-yellow-400"
+            class="font-bold text-green-400"
           >
             {{ t('wheel.statusSuccess') }}
           </span>
@@ -71,7 +70,7 @@ const getIsWin = (item: any) => item.isWin
 
     <button
       @click="$emit('close')"
-      class="mt-6 w-full rounded-lg bg-gradient-to-r from-yellow-600 to-yellow-400 py-3 font-black uppercase tracking-widest text-black shadow-[0_4px_15px_rgba(234,179,8,0.3)] transition-transform active:scale-[0.98]"
+      class="mt-6 w-full rounded-lg border border-white/20 bg-white/10 py-3 font-black uppercase tracking-widest text-white shadow-lg backdrop-blur-md transition-all hover:bg-white/20 active:scale-[0.98]"
     >
       {{ t('common.confirm') }}
     </button>
@@ -92,11 +91,8 @@ const getIsWin = (item: any) => item.isWin
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(234, 179, 8, 0.3);
+  background: #525151;
   border-radius: 10px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(234, 179, 8, 0.6);
 }
 
 /* 列表進入動畫 */

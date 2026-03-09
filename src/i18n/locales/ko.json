@@ -1,0 +1,102 @@
+{
+  "common": {
+    "home": "홈",
+    "login": "로그인",
+    "logout": "로그아웃",
+    "user": "사용자",
+    "confirm": "확인",
+    "dont_show_today": "오늘 하루 보지 않기"
+  },
+  "login": {
+    "title": "회원 로그인",
+    "desc": "아이디와 비밀번호를 입력해 주세요",
+    "username": "아이디",
+    "password": "비밀번호",
+    "placeholder_user": "아이디를 입력하세요",
+    "placeholder_pass": "비밀번호를 입력하세요",
+    "confirm": "로그인하기",
+    "loading": "로그인 중...",
+    "success": "로그인 성공",
+    "logout_success": "로그아웃 되었습니다",
+    "fail": "로그인 실패, 정보를 확인해 주세요",
+    "empty_error": "아이디와 비밀번호를 입력해 주세요",
+    "test_account": "테스트 계정"
+  },
+  "home": {
+    "title": "나의 포트폴리오",
+    "list": "작품 목록",
+    "subtitle_1": "개발한 프로젝트들이 기록된 공간입니다",
+    "subtitle_2": "사용된 핵심 기술:",
+    "viewProject": "작품 보기"
+  },
+  "footer": {
+    "rights": "All Rights Reserved."
+  },
+  "currency": {
+    "title": "실시간 환율 변환",
+    "desc": "Exchange Rate API를 통합하여 실시간 환율 변환 및 동적 통화 전환을 구현했습니다.",
+    "amount": "금액 입력",
+    "from": "기준 통화",
+    "to": "대상 통화",
+    "result": "변환 결과",
+    "updateTime": "최근 업데이트 시간"
+  },
+  "currencies": {
+    "TWD": "대만 달러",
+    "NZD": "뉴질랜드 달러",
+    "USD": "미국 달러",
+    "JPY": "일본 엔",
+    "EUR": "유로",
+    "GBP": "영국 파운드",
+    "KRW": "대한민국 원",
+    "HKD": "홍콩 달러",
+    "CNY": "중국 위안",
+    "SGD": "싱가포르 달러"
+  },
+  "wheel": {
+    "title": "럭키 휠 게임",
+    "desc": "원생 Canvas로 개발된 경품 추첨 휠이며, 당첨 기록 기능을 포함합니다.",
+    "betterLuck": "다음 기회에",
+    "congrats": "축하합니다! 당첨되었습니다",
+    "myRecords": "나의 당첨 기록",
+    "loginToView": "기록을 보려면 로그인이 필요합니다",
+    "historyTitle": "당첨 이력",
+    "noRecords": "당첨 기록이 없습니다",
+    "statusSuccess": "당첨",
+    "statusMissed": "낙첨"
+  },
+  "products": {
+    "title": "쇼핑몰",
+    "desc": "FakeStoreAPI를 통해 상품 데이터를 연동하고 Pinia로 장바구니와 로그인 상태를 관리합니다.",
+    "loading": "불러오는 중...",
+    "error_load": "데이터 로드 실패",
+    "add_to_cart": "장바구니 담기",
+    "add_to_cart_success": "장바구니에 추가되었습니다",
+    "display_range": "{start} - {end} 번째 항목 표시 중",
+    "default": "기본순",
+    "lowToHigh": "가격 낮은순",
+    "highToLow": "가격 높은순",
+    "all": "전체",
+    "mens": "남성 의류",
+    "jewelery": "쥬얼리",
+    "electronics": "가전제품",
+    "womens": "여성 의류",
+    "cart": "장바구니",
+    "empty": "장바구니가 비어 있습니다",
+    "go_shopping": "상품 보러 가기",
+    "total_amount": "총 결제 금액",
+    "checkout": "결제하기",
+    "checkout_success": "결제 완료! 구매해 주셔서 감사합니다",
+    "remove_confirm_title": "삭제 확인",
+    "remove_confirm_msg": "이 상품을 장바구니에서 삭제하시겠습니까?"
+  },
+  "crypto": {
+    "title": "암호화폐 시세",
+    "desc": "CoinGecko API를 연동하고 ECharts를 사용하여 시세 추이 차트 및 유형 전환을 구현했습니다.",
+    "subtitle": "CoinGecko 제공 최근 7일 가격 데이터",
+    "updating": "데이터 업데이트 중...",
+    "price": "가격",
+    "select_coin": "코인 선택",
+    "error": "데이터를 가져오지 못했습니다"
+  }
+}

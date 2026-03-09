@@ -17,14 +17,13 @@ export const useCartStore = defineStore(
     const totalAmount = computed(() => {
       return items.value.reduce((total, item) => total + item.price * item.quantity, 0)
     })
-    // 計算購物車商品總件數 (Badge 顯示用)
+    // 計算購物車商品總件數
     const totalCount = computed(() => {
       return items.value.reduce((total, item) => total + item.quantity, 0)
     })
     // 加入購物車
     const addToCart = (product: any) => {
       const existingItem = items.value.find((item) => item.id === product.id)
-
       if (existingItem) {
         // 如果商品已存在，增加數量
         existingItem.quantity++
@@ -39,7 +38,7 @@ export const useCartStore = defineStore(
         })
       }
     }
-    // 更改數量 (給購物車頁面使用)
+    // 更改數量
     const updateQuantity = (id: number, change: number) => {
       const item = items.value.find((i) => i.id === id)
       if (item) {
@@ -54,7 +53,7 @@ export const useCartStore = defineStore(
     const removeFromCart = (id: number) => {
       items.value = items.value.filter((item) => item.id !== id)
     }
-    // 清空購物車 (結帳成功後使用)
+    // 清空購物車
     const clearCart = () => {
       items.value = []
     }

@@ -4,7 +4,8 @@
     "login": "ログイン",
     "logout": "ログアウト",
     "user": "ユーザー",
-    "confirm": "確認"
+    "confirm": "確認",
+    "dont_show_today": "今日、再度表示しない"
   },
   "login": {
     "title": "会員ログイン",
@@ -23,6 +24,7 @@
   },
   "home": {
     "title": "ポートフォリオ",
+    "list": "作品リスト",
     "subtitle_1": "これまでに開発したプロジェクトの記録です",
     "subtitle_2": "採用している主な技術：",
     "viewProject": "プロジェクトを見る"
@@ -53,14 +55,14 @@
   },
   "wheel": {
     "title": "ラッキーホイール",
-    "desc": "ネイティブのCanvas に基づいた抽選ホイール。動的な物理エフェクトと確率演算を搭載しています。",
+    "desc": "原生 Canvas をベースに開発された抽選ホイール。当選履歴機能を搭載しています。",
     "betterLuck": "また次回！",
     "congrats": "おめでとうございます！",
     "myRecords": "獲得履歴",
     "loginToView": "ログインして履歴を確認する",
     "historyTitle": "当選履歴",
     "noRecords": "記録がありません",
-    "statusSuccess": "獲得済み",
+    "statusSuccess": "当たり",
     "statusMissed": "ハズレ"
   },
   "products": {

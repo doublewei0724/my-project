@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePopupStore } from '@/stores/popup'
+import Announcement from './Announcement.vue'
 import LoginForm from './LoginForm.vue'
 import WheelRecords from './WheelRecords.vue'
 
@@ -10,6 +11,8 @@ const { isShow, currentPopup, popupProps } = storeToRefs(popupStore)
 
 const activeComponent = computed(() => {
   switch (currentPopup.value) {
+    case 'announcement':
+      return Announcement
     case 'login':
       return LoginForm
     case 'wheelRecords':

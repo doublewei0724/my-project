@@ -4,7 +4,8 @@
     "login": "登录",
     "logout": "登出",
     "user": "用户",
-    "confirm": "确定"
+    "confirm": "确定",
+    "dont_show_today": "今日不再显示"
   },
   "login": {
     "title": "会员登录",
@@ -23,6 +24,7 @@
   },
   "home": {
     "title": "我的作品集",
+    "list": "作品列表",
     "subtitle_1": "这里记录了我开发的各项项目",
     "subtitle_2": "使用到的核心技术：",
     "viewProject": "查看作品"
@@ -53,14 +55,14 @@
   },
   "wheel": {
     "title": "转盘游戏",
-    "desc": "基于原生 Canvas 开发的抽奖转盘，包含动态物理效果与概率演算。",
+    "desc": "基于原生 Canvas 开发的抽奖转盘，包含中奖记录功能。",
     "betterLuck": "再接再厉",
     "congrats": "恭喜中奖",
     "myRecords": "我的中奖记录",
     "loginToView": "请先登录以查看记录",
     "historyTitle": "中奖记录",
     "noRecords": "目前尚无中奖记录",
-    "statusSuccess": "领取成功",
+    "statusSuccess": "已中奖",
     "statusMissed": "未中奖"
   },
   "products": {

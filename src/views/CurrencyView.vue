@@ -29,7 +29,6 @@ const currencyCodes = [
   'SGD', // 新加坡
 ]
 
-// 取得匯率邏輯
 const fetchRate = async () => {
   if (fromCurrency.value === toCurrency.value) {
     exchangeRate.value = 1
@@ -39,8 +38,6 @@ const fetchRate = async () => {
   isLoading.value = true
   try {
     const res = await axios.get(`${BASE_URL}/latest/${fromCurrency.value}`)
-
-    // 檢查 API 回傳狀態
     if (res.data.result === 'success') {
       exchangeRate.value = res.data.conversion_rates[toCurrency.value]
       lastUpdate.value = res.data.time_last_update_utc.substring(0, 16)
@@ -52,10 +49,6 @@ const fetchRate = async () => {
   }
 }
 
-// 監聽幣別切換自動更新
-watch([fromCurrency, toCurrency], () => fetchRate())
-
-// 金額格式化
 const formatCurrencyValue = (val: number, currencyCode: string) => {
   return new Intl.NumberFormat('zh-TW', {
     style: 'currency',
@@ -65,12 +58,13 @@ const formatCurrencyValue = (val: number, currencyCode: string) => {
   }).format(val)
 }
 
-// 切換幣別
 const swapCurrencies = () => {
   const temp = fromCurrency.value
   fromCurrency.value = toCurrency.value
   toCurrency.value = temp
 }
+
+watch([fromCurrency, toCurrency], () => fetchRate())
 
 onMounted(() => fetchRate())
 </script>
@@ -82,7 +76,7 @@ onMounted(() => fetchRate())
         <h1 class="flex items-center gap-3 text-2xl font-bold sm:text-3xl">
           {{ t('currency.title') }}
         </h1>
-        <p class="mt-2 text-indigo-100 opacity-80">{{ t('currency.desc') }}</p>
+        <!-- <p class="mt-2 text-indigo-100 opacity-80">{{ t('currency.desc') }}</p> -->
       </div>
 
       <div class="space-y-4 p-6 sm:p-8">

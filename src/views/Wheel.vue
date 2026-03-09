@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Clock } from 'lucide-vue-next'
 import { showDialog } from 'vant'
@@ -41,7 +41,6 @@ const updateCanvasSize = () => {
   const padding = 60
   const screenWidth = window.innerWidth - padding
   canvasSize.value = Math.min(screenWidth, 500)
-  setTimeout(() => drawWheel(), 0)
 }
 
 const getLines = (ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] => {
@@ -93,7 +92,6 @@ const drawWheel = (): void => {
     const endAngle: number = startAngle + arc.value
     const centerAngle: number = startAngle + arc.value / 2
 
-    // --- 1. 繪製背景扇區 ---
     ctx.save()
     const [colorStart, colorEnd] = colorThemes[i % 2]!
     const gradient = ctx.createRadialGradient(rad, rad, rad * 0.1, rad, rad, rad)
@@ -129,7 +127,6 @@ const drawWheel = (): void => {
     const textOffset: number = rad * 0.75
     const lineHeight: number = fontSize * 1.1
 
-    // 這裡不再需要 if (line) 判斷，因為型別已鎖定
     lines.forEach((line: string, index: number) => {
       const yOffset: number = (index - (lines.length - 1) / 2) * lineHeight
       ctx.fillText(line, 0, -textOffset + yOffset)
@@ -203,6 +200,12 @@ const handleShowRecords = () => {
   }
 }
 
+watch(canvasSize, () => {
+  nextTick(() => {
+    drawWheel()
+  })
+})
+
 onMounted(async () => {
   updateCanvasSize()
   window.addEventListener('resize', updateCanvasSize)
@@ -262,7 +265,7 @@ watch(
           :size="18"
           class="text-yellow-400"
         />
-        {{ t('wheel.myRecords') }}
+        {{ t('wheel.historyTitle') }}
       </button>
     </div>
   </div>

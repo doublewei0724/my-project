@@ -4,7 +4,8 @@
     "login": "Login",
     "logout": "Logout",
     "user": "User",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "dont_show_today": "Don't show again today"
   },
   "login": {
     "title": "Member Login",
@@ -23,6 +24,7 @@
   },
   "home": {
     "title": "My Portfolio",
+    "list": "Project List",
     "subtitle_1": "A showcase of various projects I've developed.",
     "subtitle_2": "Core Tech Stack:",
     "viewProject": "View Project"
@@ -53,7 +55,7 @@
   },
   "wheel": {
     "title": "Lucky Wheel",
-    "desc": "A lucky wheel developed with native Canvas, featuring dynamic physics effects and probability logic.",
+    "desc": "A lucky wheel developed with native Canvas, featuring a prize history function.",
     "betterLuck": "Better luck next time",
     "congrats": "Congratulations!",
     "myRecords": "My Rewards",
