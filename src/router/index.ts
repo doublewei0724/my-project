@@ -6,8 +6,10 @@ import Cart from '@/views/Cart.vue'
 import Chart from '@/views/Chart.vue'
 import CurrencyView from '@/views/CurrencyView.vue'
 import HomeView from '@/views/HomeView.vue'
+import PcPlatform from '@/views/PcPlatform.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
 import ProductList from '@/views/ProductList.vue'
+import TemplateDemo from '@/views/TemplateDemo.vue'
 import Wheel from '@/views/Wheel.vue'
 
 declare module 'vue-router' {
@@ -37,6 +39,8 @@ const router = createRouter({
             { path: 'cart', name: 'cart', component: Cart },
             { path: 'currency', name: 'currency', component: CurrencyView },
             { path: 'chart', name: 'chart', component: Chart },
+            { path: 'pcPlatform', name: 'pcPlatform', component: PcPlatform },
+            { path: 'templateDemo', name: 'templateDemo', component: TemplateDemo },
           ],
         },
       ],

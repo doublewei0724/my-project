@@ -98,5 +98,26 @@
     "price": "가격",
     "select_coin": "코인 선택",
     "error": "데이터를 가져오지 못했습니다"
+  },
+  "pcPlatform": {
+    "title": "PC 플랫폼 데모",
+    "desc": "두 가지 전문 PC 화이트라벨 템플릿. 클릭하여 전체 데모를 확인하세요.",
+    "openBtn": "지금 열기"
+  },
+  "templateDemo": {
+    "title": "템플릿 쇼케이스",
+    "desc": "개발된 패키지형 템플릿 데모. 플랫폼, 포럼, 베팅 시스템 포함.",
+    "mainTitle": "템플릿 쇼케이스",
+    "mainSubtitle": "제작 사례",
+    "clickTip": "(슬라이드하여 상세 보기, 클릭 시 이미지 확대)",
+    "viewBig": "크게 보기",
+    "groups": {
+      "forumH5": "복권 포럼 템플릿 - H5",
+      "generalPC": "종합 사이트 템플릿 - PC",
+      "generalH5": "종합 사이트 템플릿 - H5",
+      "nationalH5": "글로벌 템플릿 - H5",
+      "nationalPC": "글로벌 템플릿 - PC",
+      "betH5": "베팅 템플릿 - H5"
+    }
   }
 }

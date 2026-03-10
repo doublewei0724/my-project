@@ -98,5 +98,26 @@
     "price": "價格",
     "select_coin": "選擇幣別",
     "error": "獲取數據失敗"
+  },
+  "pcPlatform": {
+    "title": "PC端平台演示",
+    "desc": "兩套專業PC包網模板，點擊查看完整演示。",
+    "openBtn": "立即開啟"
+  },
+  "templateDemo": {
+    "title": "模板展示",
+    "desc": "開發過的包網模版Demo，包含平台、帖子論壇、投注",
+    "mainTitle": "模板展示",
+    "mainSubtitle": "產品案例",
+    "clickTip": "(滑動圖面看更多詳情、點擊看大圖)",
+    "viewBig": "查看大圖",
+    "groups": {
+      "forumH5": "六合論壇模板展示區-H5",
+      "generalPC": "綜合站模板展示區-PC",
+      "generalH5": "綜合站模板展示區-H5",
+      "nationalH5": "國際模板展示區-H5",
+      "nationalPC": "國際模板展示區-PC",
+      "betH5": "投注模板展示區-H5"
+    }
   }
 }

@@ -29,6 +29,9 @@ importers:
       pinia-plugin-persistedstate:
         specifier: ^4.7.1
         version: 4.7.1(pinia@3.0.4(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3)))
+      swiper:
+        specifier: ^12.1.2
+        version: 12.1.2
       vant:
         specifier: ^4.9.22
         version: 4.9.22(vue@3.5.28(typescript@5.9.3))
@@ -1501,6 +1504,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
+  swiper@12.1.2:
+    resolution: {integrity: sha512-4gILrI3vXZqoZh71I1PALqukCFgk+gpOwe1tOvz5uE9kHtl2gTDzmYflYCwWvR4LOvCrJi6UEEU+gnuW5BtkgQ==}
+    engines: {node: '>= 4.7.0'}
+
   synckit@0.11.12:
     resolution: {integrity: sha512-Bh7QjT8/SuKUIfObSXNHNSK6WHo6J1tHCqJsuaFDP7gP0fkzSfTxI8y85JrppZ0h8l0maIgc2tfuZQ6/t3GtnQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -2881,6 +2888,8 @@ snapshots:
       copy-anything: 4.0.5
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swiper@12.1.2: {}
 
   synckit@0.11.12:
     dependencies:

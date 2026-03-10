@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { ChevronLeft, Minus, Plus, ShoppingBag, Trash2 } from 'lucide-vue-next'
-import { showConfirmDialog, showToast } from 'vant'
+import { closeToast, showConfirmDialog, showToast } from 'vant'
 import { useCartStore } from '@/stores/cart'
 
 const cartStore = useCartStore()
@@ -22,6 +22,7 @@ const confirmRemove = (id: number) => {
 }
 
 const handleCheckout = () => {
+  closeToast()
   showToast({
     message: t('products.checkout_success'),
     icon: 'success',

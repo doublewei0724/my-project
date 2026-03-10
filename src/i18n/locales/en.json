@@ -98,5 +98,26 @@
     "price": "Price",
     "select_coin": "Select Currency",
     "error": "Failed to fetch data"
+  },
+  "pcPlatform": {
+    "title": "PC Platform Demo",
+    "desc": "Two sets of professional PC white label templates. Click to view the full demo.",
+    "openBtn": "Open Now"
+  },
+  "templateDemo": {
+    "title": "Template Showcase",
+    "desc": "Demo of developed white label templates, including platforms, forums, and betting systems.",
+    "mainTitle": "Template Showcase",
+    "mainSubtitle": "Case Studies",
+    "clickTip": "(Slide to see more details, click to enlarge image)",
+    "viewBig": "View Large Image",
+    "groups": {
+      "forumH5": "Lottery Forum Templates - H5",
+      "generalPC": "General Platform Templates - PC",
+      "generalH5": "General Platform Templates - H5",
+      "nationalH5": "International Templates - H5",
+      "nationalPC": "International Templates - PC",
+      "betH5": "Betting Templates - H5"
+    }
   }
 }

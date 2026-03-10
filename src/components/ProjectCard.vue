@@ -51,8 +51,8 @@ const cardStyle = computed(() => {
   }
 
   // 計算旋轉角度：控制在 -15 ~ 15 度之間
-  const rotateX = (elementY.value / elementHeight.value - 0.5) * -30
-  const rotateY = (elementX.value / elementWidth.value - 0.5) * 30
+  const rotateX = (elementY.value / elementHeight.value - 0.5) * -15
+  const rotateY = (elementX.value / elementWidth.value - 0.5) * 15
 
   return {
     transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`,

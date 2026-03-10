@@ -15,7 +15,14 @@ const chartType = ref<'line' | 'bar'>('line')
 const chartOptions = ref<any>(null)
 const loading = ref(false)
 
-const coinList = [
+interface Coin {
+  name: string
+  id: string
+  color: string
+  symbol: string
+}
+
+const coinList: Coin[] = [
   { name: 'Bitcoin', id: 'bitcoin', color: '#f7931a', symbol: 'BTC' },
   { name: 'Ethereum', id: 'ethereum', color: '#627eea', symbol: 'ETH' },
   { name: 'Solana', id: 'solana', color: '#14f195', symbol: 'SOL' },

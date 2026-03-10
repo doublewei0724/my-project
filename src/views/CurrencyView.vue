@@ -10,8 +10,8 @@ const API_KEY = '65ff15e80a19222c11f4adda'
 const BASE_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}`
 
 const amount = ref<number>(1)
-const fromCurrency = ref('TWD')
-const toCurrency = ref('USD')
+const fromCurrency = ref('USD')
+const toCurrency = ref('TWD')
 const exchangeRate = ref<number>(0)
 const lastUpdate = ref('')
 const isLoading = ref(false)
@@ -77,7 +77,7 @@ onMounted(() => fetchRate())
 
 <template>
   <div class="mainContent">
-    <div class="overflow-hidden rounded-3xl border border-white/10 bg-[#1e2230]/60 shadow-2xl backdrop-blur-md">
+    <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#1e2230]/60 shadow-2xl backdrop-blur-md">
       <div class="border-b border-white/5 bg-gradient-to-r from-indigo-600/40 to-purple-700/40 p-6 text-white">
         <h1 class="flex items-center gap-3 text-2xl font-bold sm:text-3xl">
           {{ t('currency.title') }}
@@ -95,7 +95,7 @@ onMounted(() => fetchRate())
             type="number"
             min="0"
             placeholder="0.00"
-            class="w-full border-b-2 border-white/10 bg-transparent px-0 font-bold text-white outline-none transition-colors focus:border-indigo-500"
+            class="w-full border-b-2 border-white/10 bg-transparent px-0 text-xl font-bold text-white outline-none transition-colors focus:border-indigo-500"
           />
         </div>
 

@@ -40,6 +40,9 @@ select option {
   background-color: #262934;
   color: white;
 }
+.van-toast {
+  background-color: var(--van-toast-background);
+}
 .van-toast__text {
   word-break: keep-all;
   overflow-wrap: break-word;

@@ -23,7 +23,12 @@ const sortOrder = ref('default')
 const currentPage = ref(1)
 const pageSize = 10
 
-const categories = [
+export interface Category {
+  title: string
+  key: string
+}
+
+const categories: Category[] = [
   { title: 'products.all', key: 'all' },
   { title: 'products.mens', key: "men's clothing" },
   { title: 'products.jewelery', key: 'jewelery' },

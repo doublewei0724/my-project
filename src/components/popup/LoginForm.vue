@@ -21,14 +21,15 @@ const password = ref('83r5^_')
 
 const handleLogin = async () => {
   if (!username.value || !password.value) {
+    closeToast()
     showToast({ message: t('login.empty_error'), type: 'fail' })
     return
   }
-
+  closeToast()
   showLoadingToast({
+    // 登入中
     message: t('login.loading'),
     forbidClick: true,
-    duration: 0,
   })
 
   try {
@@ -39,6 +40,8 @@ const handleLogin = async () => {
 
     if (response.data.token) {
       userStore.setToken(response.data.token)
+      // 登入成功
+      closeToast()
       showToast({ message: t('login.success'), type: 'success' })
       popupStore.closePopup()
 

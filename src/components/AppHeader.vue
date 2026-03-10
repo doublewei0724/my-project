@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { ChevronDown, Globe, House, LogIn, LogOut } from 'lucide-vue-next'
-import { showToast } from 'vant'
+import { closeToast, showToast } from 'vant'
 import { usePopupStore } from '@/stores/popup'
 import { useUserStore } from '@/stores/user'
 
@@ -25,14 +25,12 @@ const handleLoginClick = () => {
 }
 
 const handleLogout = () => {
+  closeToast()
   showToast({
     message: t('login.logout_success'),
     type: 'success',
-    duration: 1500,
   })
-  setTimeout(() => {
-    userStore.logout()
-  }, 1500)
+  userStore.logout()
 }
 </script>
 
@@ -93,5 +91,3 @@ const handleLogout = () => {
     </div>
   </div>
 </template>
-
-<style scoped></style>
