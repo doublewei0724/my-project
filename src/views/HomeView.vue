@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
+import { type Component, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { FerrisWheel, Layers3, LineChart as LineIcon, Monitor, RefreshCw, ShoppingCart } from 'lucide-vue-next'
 import ProjectCard from '@/components/ProjectCard.vue'
+import { useDailyStorage } from '@/composables/useDailyStorage'
+import { usePopupStore } from '@/stores/popup'
+
+const route = useRoute()
+const popupStore = usePopupStore()
+const { isMarkedToday } = useDailyStorage()
 
 interface Project {
   titleKey: string
@@ -55,6 +62,16 @@ const projects: Project[] = [
     color: 'from-orange-600/20 to-amber-400/20',
   },
 ]
+
+onMounted(() => {
+  // 這裡印出來的應該就是 'home'
+  console.log('當前路由名稱:', route.name)
+
+  const STORAGE_KEY = 'hide_announcement_today'
+  if (!isMarkedToday(STORAGE_KEY)) {
+    popupStore.openPopup('announcement')
+  }
+})
 </script>
 
 <template>

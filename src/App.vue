@@ -2,13 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import gsap from 'gsap'
 import GlobalPopup from '@/components/popup/GlobalPopup.vue'
-import { useDailyStorage } from '@/composables/useDailyStorage'
-import { usePopupStore } from '@/stores/popup'
 
-const popupStore = usePopupStore()
-const { isMarkedToday } = useDailyStorage()
-
-// --- 滑鼠與游標邏輯 ---
 const cursorRef = ref<HTMLElement | null>(null)
 
 const updateMouse = (e: MouseEvent) => {
@@ -23,13 +17,6 @@ const updateMouse = (e: MouseEvent) => {
 }
 
 onMounted(() => {
-  // 1. 公告邏輯
-  const STORAGE_KEY = 'hide_announcement_today'
-  if (!isMarkedToday(STORAGE_KEY)) {
-    popupStore.openPopup('announcement')
-  }
-
-  // 2. 全域監聽滑鼠移動
   window.addEventListener('mousemove', updateMouse)
 })
 
