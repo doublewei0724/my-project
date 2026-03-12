@@ -54,13 +54,13 @@ const projects: Project[] = [
     icon: Layers3,
     color: 'from-cyan-600/20 to-cyan-400/20',
   },
-  {
-    titleKey: 'pcPlatform.title',
-    descriptionKey: 'pcPlatform.desc',
-    name: 'pcPlatform',
-    icon: Monitor,
-    color: 'from-orange-600/20 to-amber-400/20',
-  },
+  // {
+  //   titleKey: 'pcPlatform.title',
+  //   descriptionKey: 'pcPlatform.desc',
+  //   name: 'pcPlatform',
+  //   icon: Monitor,
+  //   color: 'from-orange-600/20 to-amber-400/20',
+  // },
 ]
 
 onMounted(() => {
