@@ -5,7 +5,7 @@ import tailwindcss from 'tailwindcss'
 import { defineConfig } from 'vite'
 
 export default defineConfig(() => ({
-  base: '/my-project/',
+  base: './',
   plugins: [vue()],
   build: {
     modulePreload: {
