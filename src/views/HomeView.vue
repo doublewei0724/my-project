@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { type Component, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
 import { FerrisWheel, Layers3, LineChart as LineIcon, Monitor, RefreshCw, ShoppingCart } from 'lucide-vue-next'
 import ProjectCard from '@/components/ProjectCard.vue'
 import { useDailyStorage } from '@/composables/useDailyStorage'
 import { usePopupStore } from '@/stores/popup'
 
-const route = useRoute()
 const popupStore = usePopupStore()
 const { isMarkedToday } = useDailyStorage()
 

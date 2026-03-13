@@ -16,10 +16,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # 提升到目前的穩定版本
+          node-version: 20
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4 # 提升 pnpm action 版本
+        uses: pnpm/action-setup@v4
         with:
           version: 10
 
