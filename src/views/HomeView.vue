@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Component, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { FerrisWheel, Layers3, LineChart as LineIcon, RefreshCw, ShoppingCart } from 'lucide-vue-next'
+import { FerrisWheel, Layers3, LineChart as LineIcon, Monitor, RefreshCw, ShoppingCart } from 'lucide-vue-next'
 import ProjectCard from '@/components/ProjectCard.vue'
 import { useDailyStorage } from '@/composables/useDailyStorage'
 import { usePopupStore } from '@/stores/popup'
@@ -54,19 +54,16 @@ const projects: Project[] = [
     icon: Layers3,
     color: 'from-cyan-600/20 to-cyan-400/20',
   },
-  // {
-  //   titleKey: 'pcPlatform.title',
-  //   descriptionKey: 'pcPlatform.desc',
-  //   name: 'pcPlatform',
-  //   icon: Monitor,
-  //   color: 'from-orange-600/20 to-amber-400/20',
-  // },
+  {
+    titleKey: 'pcPlatform.title',
+    descriptionKey: 'pcPlatform.desc',
+    name: 'pcPlatform',
+    icon: Monitor,
+    color: 'from-orange-600/20 to-amber-400/20',
+  },
 ]
 
 onMounted(() => {
-  // 這裡印出來的應該就是 'home'
-  console.log('當前路由名稱:', route.name)
-
   const STORAGE_KEY = 'hide_announcement_today'
   if (!isMarkedToday(STORAGE_KEY)) {
     popupStore.openPopup('announcement')
