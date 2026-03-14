@@ -43,7 +43,7 @@ const handleConfirm = () => {
 
     <div class="m-2 rounded-xl border border-white/5 bg-black/20 p-4">
       <p class="font-mono text-xs leading-relaxed text-indigo-200/70">
-        Vite • Vue 3 • TypeScript • Pinia • Tailwind • Vant • Canvas • ECharts • gsap
+        Vite • Vue 3 • TypeScript • Pinia • i18n • Tailwind • Vant • Canvas • ECharts • gsap
       </p>
     </div>
 
