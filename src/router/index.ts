@@ -1,4 +1,4 @@
-import { RouterView, createRouter, createWebHashHistory } from 'vue-router'
+import { RouterView, createRouter, createWebHistory } from 'vue-router'
 import i18n from '@/i18n'
 import LayoutDefault from '@/layouts/Default.vue'
 import { useUserStore } from '@/stores/user'
@@ -21,7 +21,8 @@ declare module 'vue-router' {
 const SUPPORTED_LANGS = ['zh-TW', 'en', 'ja', 'ko']
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  // history: createWebHashHistory(),
+  history: createWebHistory(),
   scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
