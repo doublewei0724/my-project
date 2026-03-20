@@ -1,0 +1,123 @@
+{
+  "common": {
+    "home": "Trang chủ",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "user": "Người dùng",
+    "confirm": "Xác nhận",
+    "dont_show_today": "Không hiển thị hôm nay"
+  },
+  "login": {
+    "title": "Đăng nhập thành viên",
+    "desc": "Vui lòng nhập tài khoản và mật khẩu để xác minh",
+    "username": "Tài khoản",
+    "password": "Mật khẩu",
+    "placeholder_user": "Nhập tài khoản",
+    "placeholder_pass": "Nhập mật khẩu",
+    "confirm": "Xác nhận đăng nhập",
+    "loading": "Đang đăng nhập...",
+    "success": "Đăng nhập thành công",
+    "logout_success": "Đã đăng xuất thành công",
+    "fail": "Đăng nhập thất bại, vui lòng kiểm tra lại thông tin",
+    "empty_error": "Vui lòng nhập tài khoản và mật khẩu",
+    "test_account": "Tài khoản thử nghiệm"
+  },
+  "home": {
+    "title": "Danh mục dự án",
+    "list": "Danh sách dự án",
+    "subtitle_1": "Đây là nơi lưu trữ các dự án tôi đã phát triển",
+    "subtitle_2": "Công nghệ cốt lõi được sử dụng:",
+    "viewProject": "Xem dự án"
+  },
+  "footer": {
+    "rights": "Bảo lưu mọi quyền"
+  },
+  "currency": {
+    "title": "Chuyển đổi tỷ giá toàn cầu",
+    "desc": "Tích hợp Exchange Rate API để chuyển đổi tỷ giá toàn cầu theo thời gian thực.",
+    "amount": "Nhập số tiền",
+    "from": "Tiền tệ gốc",
+    "to": "Tiền tệ đích",
+    "result": "Kết quả quy đổi",
+    "updateTime": "Cập nhật lần cuối"
+  },
+  "currencies": {
+    "TWD": "Đài tệ",
+    "NZD": "Đô New Zealand",
+    "USD": "Đô la Mỹ",
+    "JPY": "Yên Nhật",
+    "EUR": "Euro",
+    "GBP": "Bảng Anh",
+    "KRW": "Won Hàn Quốc",
+    "HKD": "Đô Hồng Kông",
+    "CNY": "Nhân dân tệ",
+    "SGD": "Đô Singapore"
+  },
+  "wheel": {
+    "title": "Trò chơi vòng quay",
+    "desc": "Vòng quay may mắn được phát triển bằng Canvas thuần, bao gồm chức năng lịch sử trúng thưởng.",
+    "betterLuck": "Chúc may mắn lần sau",
+    "congrats": "Chúc mừng trúng thưởng",
+    "myRecords": "Lịch sử trúng thưởng của tôi",
+    "loginToView": "Vui lòng đăng nhập để xem lịch sử",
+    "historyTitle": "Lịch sử trúng thưởng",
+    "noRecords": "Chưa có lịch sử trúng thưởng",
+    "statusSuccess": "Đã trúng",
+    "statusMissed": "Không trúng"
+  },
+  "products": {
+    "title": "Cửa hàng trực tuyến",
+    "desc": "Sử dụng FakeStoreAPI để lấy dữ liệu sản phẩm và quản lý giỏ hàng qua Pinia.",
+    "loading": "Đang tải...",
+    "error_load": "Tải thất bại",
+    "add_to_cart": "Thêm vào giỏ hàng",
+    "add_to_cart_success": "Đã thêm vào giỏ hàng",
+    "display_range": "Hiển thị {start} - {end}",
+    "default": "Sắp xếp mặc định",
+    "lowToHigh": "Giá: Thấp đến cao",
+    "highToLow": "Giá: Cao đến thấp",
+    "all": "Tất cả",
+    "mens": "Thời trang nam",
+    "jewelery": "Trang sức",
+    "electronics": "Điện tử",
+    "womens": "Thời trang nữ",
+    "cart": "Giỏ hàng",
+    "empty": "Giỏ hàng đang trống",
+    "go_shopping": "Tiếp tục mua sắm",
+    "total_amount": "Tổng tiền",
+    "checkout": "Thanh toán ngay",
+    "checkout_success": "Thanh toán thành công! Cảm ơn bạn đã mua hàng",
+    "remove_confirm_title": "Xác nhận xóa",
+    "remove_confirm_msg": "Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng không?"
+  },
+  "crypto": {
+    "title": "Xu hướng giá tiền điện tử",
+    "desc": "Kết nối CoinGecko API và sử dụng ECharts để hiển thị biểu đồ xu hướng giá.",
+    "subtitle": "Dữ liệu giá 7 ngày gần nhất từ CoinGecko",
+    "updating": "Đang cập nhật dữ liệu...",
+    "price": "Giá",
+    "select_coin": "Chọn tiền tệ",
+    "error": "Lấy dữ liệu thất bại"
+  },
+  "pcPlatform": {
+    "title": "Demo nền tảng PC",
+    "desc": "Hai bộ mẫu giao diện PC chuyên nghiệp, nhấn để xem demo đầy đủ.",
+    "openBtn": "Mở ngay"
+  },
+  "templateDemo": {
+    "title": "Trưng bày mẫu giao diện",
+    "desc": "Demo các mẫu giao diện đã phát triển, bao gồm nền tảng, diễn đàn và cá cược.",
+    "mainTitle": "Trưng bày mẫu giao diện",
+    "mainSubtitle": "Case Studies",
+    "clickTip": "(Vuốt để xem thêm chi tiết, nhấn để phóng to)",
+    "viewBig": "Xem ảnh lớn",
+    "groups": {
+      "forumH5": "Mẫu diễn đàn xổ số - H5",
+      "generalPC": "Mẫu nền tảng tổng hợp - PC",
+      "generalH5": "Mẫu nền tảng tổng hợp - H5",
+      "nationalH5": "Mẫu quốc tế - H5",
+      "nationalPC": "Mẫu quốc tế - PC",
+      "betH5": "Mẫu cá cược - H5"
+    }
+  }
+}

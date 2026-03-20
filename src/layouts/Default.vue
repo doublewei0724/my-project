@@ -4,11 +4,10 @@ import AppHeader from '@/components/AppHeader.vue'
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex flex-1 flex-col">
     <AppHeader />
-    <main class="flex flex-1 flex-col justify-center p-4">
-      <RouterView />
-    </main>
-    <AppFooter />
+
+    <RouterView />
   </div>
+  <AppFooter />
 </template>

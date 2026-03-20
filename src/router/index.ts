@@ -18,14 +18,14 @@ declare module 'vue-router' {
   }
 }
 
-const SUPPORTED_LANGS = ['zh-TW', 'en', 'ja', 'ko']
+const SUPPORTED_LANGS = ['zh-TW', 'zh-CN', 'en', 'ja', 'ko', 'vi']
 
 const router = createRouter({
   history: createWebHashHistory(),
   scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
-      path: '/:lang(zh-TW|en|ja|ko)?',
+      path: '/:lang(zh-TW|zh-CN|en|ja|ko|vi)?',
       component: RouterView,
       children: [
         {
@@ -49,7 +49,17 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       redirect: () => {
         const nav = navigator.language
-        const browserLang = nav.includes('ko') ? 'ko' : nav.includes('ja') ? 'ja' : nav.includes('zh') ? 'zh-TW' : 'en'
+        const browserLang = nav.includes('ko')
+          ? 'ko'
+          : nav.includes('ja')
+            ? 'ja'
+            : nav.includes('vi')
+              ? 'vi'
+              : nav.includes('zh-CN') || nav === 'zh'
+                ? 'zh-CN'
+                : nav.includes('zh')
+                  ? 'zh-TW'
+                  : 'en'
         return `/${browserLang}`
       },
     },
@@ -60,10 +70,20 @@ router.beforeEach((to, _from, next) => {
   const userStore = useUserStore()
   const { lang } = to.params
 
-  // 獲取瀏覽器語系,沒有就預設zh-TW
+  // 獲取瀏覽器語系，沒有就預設 zh-TW
   if (!lang || !SUPPORTED_LANGS.includes(lang as string)) {
     const nav = navigator.language
-    const defaultLang = nav.includes('ko') ? 'ko' : nav.includes('ja') ? 'ja' : nav.includes('zh') ? 'zh-TW' : 'en'
+    const defaultLang = nav.includes('ko')
+      ? 'ko'
+      : nav.includes('ja')
+        ? 'ja'
+        : nav.includes('vi')
+          ? 'vi'
+          : nav.includes('zh-CN') || nav === 'zh'
+            ? 'zh-CN'
+            : nav.includes('zh')
+              ? 'zh-TW'
+              : 'en'
 
     const cleanPath = to.path
       .split('/')

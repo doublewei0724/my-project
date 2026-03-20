@@ -18,7 +18,7 @@
     "loading": "登录中...",
     "success": "登录成功",
     "logout_success": "已成功登出",
-    "fail": "登录失败，请检查账密",
+    "fail": "登录失败，请检查账号密码",
     "empty_error": "请输入账号密码",
     "test_account": "测试账号"
   },
@@ -67,15 +67,15 @@
   },
   "products": {
     "title": "购物商城",
-    "desc": "使用 FakeStoreAPI 串接商品数据，并通过 Pinia 管理购物车与登录状态。",
+    "desc": "使用 FakeStoreAPI 接入商品数据，并通过 Pinia 管理购物车与登录状态。",
     "loading": "加载中...",
     "error_load": "加载失败",
     "add_to_cart": "加入购物车",
     "add_to_cart_success": "已加入购物车",
     "display_range": "显示第 {start} - {end} 条",
     "default": "默认排序",
-    "lowToHigh": "价格：从低到高",
-    "highToLow": "价格：从高到低",
+    "lowToHigh": "价格：低到高",
+    "highToLow": "价格：高到低",
     "all": "全部",
     "mens": "男装",
     "jewelery": "珠宝",
@@ -92,11 +92,32 @@
   },
   "crypto": {
     "title": "币价走势",
-    "desc": "串接 CoinGecko API 并利用 ECharts 实现币价趋势图与图表类型切换。",
-    "subtitle": "來自 CoinGecko 的近 7 日价格数据",
+    "desc": "接入 CoinGecko API 并利用 ECharts 实现币价趋势图与图表类型切换。",
+    "subtitle": "来自 CoinGecko 的近 7 日价格数据",
     "updating": "数据更新中...",
     "price": "价格",
     "select_coin": "选择币别",
     "error": "获取数据失败"
+  },
+  "pcPlatform": {
+    "title": "PC端平台演示",
+    "desc": "两套专业PC包网模板，点击查看完整演示。",
+    "openBtn": "立即开启"
+  },
+  "templateDemo": {
+    "title": "模板展示",
+    "desc": "开发过的包网模版Demo，包含平台、帖子论坛、投注",
+    "mainTitle": "模板展示",
+    "mainSubtitle": "产品案例",
+    "clickTip": "（滑动图面看更多详情、点击看大图）",
+    "viewBig": "查看大图",
+    "groups": {
+      "forumH5": "六合论坛模板展示区-H5",
+      "generalPC": "综合站模板展示区-PC",
+      "generalH5": "综合站模板展示区-H5",
+      "nationalH5": "国际模板展示区-H5",
+      "nationalPC": "国际模板展示区-PC",
+      "betH5": "投注模板展示区-H5"
+    }
   }
 }

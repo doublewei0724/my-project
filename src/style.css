@@ -13,7 +13,7 @@ html body {
   width: 100%;
   max-width: 1024px;
   margin: auto;
-  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 body::-webkit-scrollbar {
   width: 6px;
@@ -26,10 +26,6 @@ body::-webkit-scrollbar-thumb {
 }
 body::-webkit-scrollbar-thumb:hover {
   background: #e6e6ee;
-}
-.mainContent {
-  width: 100%;
-  margin: 0 auto;
 }
 #app {
   display: flex;
@@ -47,4 +43,14 @@ select option {
   word-break: keep-all;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+}
+.mainContent {
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+}
+@media (min-width: 1024px) {
+  .mainContent {
+    padding: 16px;
+  }
 }

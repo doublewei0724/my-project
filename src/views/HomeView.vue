@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { type Component, onMounted } from 'vue'
+import { type Component } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { FerrisWheel, LineChart as LineIcon, RefreshCw, ShoppingCart } from 'lucide-vue-next'
 import ProjectCard from '@/components/ProjectCard.vue'
-import { useDailyStorage } from '@/composables/useDailyStorage'
-import { usePopupStore } from '@/stores/popup'
 
-const popupStore = usePopupStore()
-const { isMarkedToday } = useDailyStorage()
+const { t } = useI18n()
+
+// import { useDailyStorage } from '@/composables/useDailyStorage'
+// import { usePopupStore } from '@/stores/popup'
+
+// const popupStore = usePopupStore()
+// const { isMarkedToday } = useDailyStorage()
 
 interface Project {
   titleKey: string
@@ -61,16 +65,27 @@ const projects: Project[] = [
   // },
 ]
 
-onMounted(() => {
-  const STORAGE_KEY = 'hide_announcement_today'
-  if (!isMarkedToday(STORAGE_KEY)) {
-    popupStore.openPopup('announcement')
-  }
-})
+// onMounted(() => {
+//   const STORAGE_KEY = 'hide_announcement_today'
+//   if (!isMarkedToday(STORAGE_KEY)) {
+//     popupStore.openPopup('announcement')
+//   }
+// })
 </script>
 
 <template>
-  <div class="mainContent px-6 py-12">
+  <div class="mainContent">
+    <p class="px-4 text-center text-lg font-bold leading-relaxed text-white/90">
+      {{ t('home.subtitle_1') }}
+      <br />
+      <span class="text-indigo-300">{{ t('home.subtitle_2') }}</span>
+    </p>
+
+    <div class="mx-auto my-6 mt-2 rounded-xl border border-white/5 bg-black/20 p-4">
+      <p class="text-center font-mono text-sm leading-relaxed text-indigo-200/70">
+        Vite • Vue 3 • TypeScript • Pinia • i18n • Tailwind • Vant • Canvas • ECharts • gsap
+      </p>
+    </div>
     <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
       <ProjectCard
         v-for="(project, index) in projects"

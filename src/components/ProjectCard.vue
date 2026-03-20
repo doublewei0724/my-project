@@ -75,10 +75,10 @@ const cardStyle = computed(() => {
     </div>
 
     <div class="flex flex-1 flex-col p-6">
-      <h2 class="text-lg font-bold text-white transition-colors group-hover:text-indigo-400">
+      <h2 class="text-xl font-bold text-white transition-colors group-hover:text-indigo-400">
         {{ t(project.titleKey) }}
       </h2>
-      <p class="mt-2 line-clamp-3 text-xs leading-relaxed text-gray-400">
+      <p class="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-400">
         {{ t(project.descriptionKey) }}
       </p>
 
