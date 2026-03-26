@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Clock, RefreshCw } from 'lucide-vue-next'
 import { showDialog } from 'vant'
@@ -7,7 +7,7 @@ import { usePopupStore } from '@/stores/popup'
 import { useScratchStore } from '@/stores/scratch'
 import { useUserStore } from '@/stores/user'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const userStore = useUserStore()
 const popupStore = usePopupStore()
 const scratchStore = useScratchStore()
@@ -23,7 +23,6 @@ interface Card {
   color: string
   revealed: boolean
   isScratching: boolean
-  hasScratched: boolean
 }
 
 const PRIZE_POOL = computed(() => [
@@ -73,6 +72,12 @@ const drawScratchLayer = (canvas: HTMLCanvasElement) => {
       ctx.fill()
     }
   }
+
+  ctx.fillStyle = 'rgba(60,60,60,0.55)'
+  ctx.font = 'bold 13px "Noto Sans TC", sans-serif'
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  ctx.fillText(t('scratch.scratchHint'), CARD_W / 2, CARD_H / 2)
 }
 
 const initGame = () => {
@@ -81,7 +86,7 @@ const initGame = () => {
   canvasRefs.value = [null, null, null]
   cards.value = Array.from({ length: 3 }, () => {
     const p = getRandomPrize()
-    return { prize: p.name, isWin: p.isWin, color: p.color, revealed: false, isScratching: false, hasScratched: false }
+    return { prize: p.name, isWin: p.isWin, color: p.color, revealed: false, isScratching: false }
   })
   nextTick(() => {
     canvasRefs.value.forEach((canvas) => {
@@ -90,6 +95,17 @@ const initGame = () => {
     gameReady.value = true
   })
 }
+
+watch(locale, () => {
+  // 如果遊戲還沒結束且正在顯示刮刮層，則重新繪製
+  canvasRefs.value.forEach((canvas, index) => {
+    const card = cards.value[index]
+    // 只有還沒被刮開的卡片需要重繪刮刮層文字
+    if (canvas && card && !card.revealed) {
+      drawScratchLayer(canvas)
+    }
+  })
+})
 
 onMounted(() => initGame())
 
@@ -125,7 +141,7 @@ const doScratch = (canvas: HTMLCanvasElement, x: number, y: number) => {
   const ctx = canvas.getContext('2d', { willReadFrequently: true })!
   ctx.globalCompositeOperation = 'destination-out'
   ctx.beginPath()
-  ctx.arc(x, y, SCRATCH_RADIUS, 0, Math.PI * 2)
+  ctx.arc(x, y, SCRATCH_RADIUS, 0, Math.PI * 3)
   ctx.fill()
 }
 
@@ -170,7 +186,6 @@ const onMove = (e: MouseEvent | TouchEvent, index: number) => {
   const canvas = canvasRefs.value[index]
   if (!canvas) return
   const pos = getEventPos(e, canvas)
-  card.hasScratched = true
   doScratch(canvas, pos.x, pos.y)
   if (getScratchedPercent(canvas) >= REVEAL_THRESHOLD) revealCard(index)
 }
@@ -208,11 +223,11 @@ const allRevealed = computed(() => cards.value.length > 0 && cards.value.every((
     <!-- Title -->
     <div class="mb-8 text-center">
       <h1
-        class="scratch-title bg-gradient-to-b from-yellow-200 via-yellow-400 to-amber-500 bg-clip-text text-5xl font-black tracking-widest text-transparent drop-shadow-lg"
+        class="scratch-title bg-gradient-to-b from-yellow-200 via-yellow-400 to-amber-500 bg-clip-text text-4xl font-black italic tracking-widest text-transparent drop-shadow-lg"
       >
         {{ t('scratch.title') }}
       </h1>
-      <p class="mt-2 text-base tracking-wide text-gray-400">{{ t('scratch.subtitle') }}</p>
+      <p class="mt-2 text-sm tracking-wide text-gray-400">{{ t('scratch.subtitle') }}</p>
     </div>
 
     <!-- Cards -->
@@ -243,14 +258,6 @@ const allRevealed = computed(() => cards.value.length > 0 && cards.value.every((
           >
             {{ t('scratch.win') }}
           </span>
-        </div>
-
-        <!-- Scratch hint text (HTML, auto-updates with locale) -->
-        <div
-          v-if="!card.revealed && !card.hasScratched"
-          class="pointer-events-none absolute inset-0 z-20 flex items-center justify-center"
-        >
-          <span class="text-[13px] font-bold text-black/50">{{ t('scratch.scratchHint') }}</span>
         </div>
 
         <!-- Scratch canvas -->
