@@ -99,6 +99,22 @@
     "select_coin": "選擇幣別",
     "error": "獲取數據失敗"
   },
+  "scratch": {
+    "title": "刮刮樂",
+    "desc": "使用原生 Canvas 實作的刮刮樂遊戲，支援滑鼠與觸控操作，含中獎紀錄功能。",
+    "subtitle": "刮開三張卡片，看看你的運氣！",
+    "scratchHint": "刮開這裡",
+    "revealAll": "全部翻開",
+    "playAgain": "再玩一次",
+    "historyTitle": "刮刮樂紀錄",
+    "noRecords": "目前尚無遊戲紀錄",
+    "congrats": "恭喜中獎！",
+    "noWin": "很遺憾，未中獎",
+    "noWinShort": "未中獎",
+    "win": "中獎",
+    "winLabel": "獎",
+    "miss": "再接再厲"
+  },
   "pcPlatform": {
     "title": "PC端平台演示",
     "desc": "兩套專業PC包網模板，點擊查看完整演示。",

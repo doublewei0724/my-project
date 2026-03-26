@@ -3,6 +3,7 @@ import { useRoute } from 'vue-router'
 import { defineStore } from 'pinia'
 import router from '@/router'
 import { useCartStore } from './cart'
+import { useScratchStore } from './scratch'
 import { useWheelStore } from './wheel'
 
 export const useUserStore = defineStore(
@@ -10,6 +11,7 @@ export const useUserStore = defineStore(
   () => {
     const cartStore = useCartStore()
     const wheelStore = useWheelStore()
+    const scratchStore = useScratchStore()
     const route = useRoute()
     const token = ref<string | null>(null)
 
@@ -25,6 +27,7 @@ export const useUserStore = defineStore(
       token.value = null
       cartStore.clearCart()
       wheelStore.clearRecords()
+      scratchStore.clearRecords()
       await router.push({
         name: 'home',
         params: { lang: route.params.lang || 'zh-TW' },

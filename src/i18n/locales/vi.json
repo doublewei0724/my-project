@@ -99,6 +99,22 @@
     "select_coin": "Chọn tiền tệ",
     "error": "Lấy dữ liệu thất bại"
   },
+  "scratch": {
+    "title": "Cào Thẻ",
+    "desc": "Trò chơi cào thẻ xây dựng bằng Canvas thuần, hỗ trợ chuột và cảm ứng, kèm lịch sử trúng thưởng.",
+    "subtitle": "Cào 3 thẻ để thử vận may của bạn!",
+    "scratchHint": "Cào ở đây",
+    "revealAll": "Mở tất cả",
+    "playAgain": "Chơi lại",
+    "historyTitle": "LỊCH SỬ CÀO THẺ",
+    "noRecords": "Chưa có lịch sử",
+    "congrats": "Chúc mừng!",
+    "noWin": "Chúc may mắn lần sau",
+    "noWinShort": "Trượt",
+    "win": "Trúng",
+    "winLabel": "giải",
+    "miss": "Chúc may mắn lần sau"
+  },
   "pcPlatform": {
     "title": "Demo nền tảng PC",
     "desc": "Hai bộ mẫu giao diện PC chuyên nghiệp, nhấn để xem demo đầy đủ.",

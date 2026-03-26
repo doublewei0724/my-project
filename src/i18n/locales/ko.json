@@ -99,6 +99,22 @@
     "select_coin": "코인 선택",
     "error": "데이터를 가져오지 못했습니다"
   },
+  "scratch": {
+    "title": "스크래치 카드",
+    "desc": "Canvas로 구현한 스크래치 카드 게임. 마우스·터치 지원, 당첨 기록 기능 포함.",
+    "subtitle": "카드 3장을 긁어 운을 시험하세요!",
+    "scratchHint": "여기를 긁으세요",
+    "revealAll": "모두 열기",
+    "playAgain": "다시 하기",
+    "historyTitle": "스크래치 기록",
+    "noRecords": "기록이 없습니다",
+    "congrats": "축하합니다!",
+    "noWin": "아쉽게도 당첨되지 않았습니다",
+    "noWinShort": "꽝",
+    "win": "당첨",
+    "winLabel": "개",
+    "miss": "다음 기회에"
+  },
   "pcPlatform": {
     "title": "PC 플랫폼 데모",
     "desc": "두 가지 전문 PC 화이트라벨 템플릿. 클릭하여 전체 데모를 확인하세요.",

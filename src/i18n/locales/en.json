@@ -99,6 +99,22 @@
     "select_coin": "Select Currency",
     "error": "Failed to fetch data"
   },
+  "scratch": {
+    "title": "Scratch Card",
+    "desc": "A scratch card game built with native Canvas, supporting mouse and touch input, with win history tracking.",
+    "subtitle": "Scratch three cards and test your luck!",
+    "scratchHint": "Scratch here",
+    "revealAll": "Reveal All",
+    "playAgain": "Play Again",
+    "historyTitle": "SCRATCH HISTORY",
+    "noRecords": "No records found",
+    "congrats": "Congratulations!",
+    "noWin": "Better luck next time",
+    "noWinShort": "MISSED",
+    "win": "WIN",
+    "winLabel": "prize(s)",
+    "miss": "Better luck next time"
+  },
   "pcPlatform": {
     "title": "PC Platform Demo",
     "desc": "Two sets of professional PC white label templates. Click to view the full demo.",

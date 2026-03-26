@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Component } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { FerrisWheel, LineChart as LineIcon, RefreshCw, ShoppingCart } from 'lucide-vue-next'
+import { FerrisWheel, LineChart as LineIcon, RefreshCw, ShoppingCart, Ticket } from 'lucide-vue-next'
 import ProjectCard from '@/components/ProjectCard.vue'
 
 const { t } = useI18n()
@@ -48,6 +48,13 @@ const projects: Project[] = [
     name: 'wheel',
     icon: FerrisWheel,
     color: 'from-red-600/20 to-red-400/20',
+  },
+  {
+    titleKey: 'scratch.title',
+    descriptionKey: 'scratch.desc',
+    name: 'scratch',
+    icon: Ticket,
+    color: 'from-yellow-600/20 to-amber-400/20',
   },
   // {
   //   titleKey: 'templateDemo.title',

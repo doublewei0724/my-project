@@ -9,6 +9,7 @@ import HomeView from '@/views/HomeView.vue'
 import PcPlatform from '@/views/PcPlatform.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
 import ProductList from '@/views/ProductList.vue'
+import ScratchCard from '@/views/ScratchCard.vue'
 import TemplateDemo from '@/views/TemplateDemo.vue'
 import Wheel from '@/views/Wheel.vue'
 
@@ -34,6 +35,7 @@ const router = createRouter({
           children: [
             { path: '', name: 'home', component: HomeView },
             { path: 'wheel', name: 'wheel', component: Wheel },
+            { path: 'scratch', name: 'scratch', component: ScratchCard },
             { path: 'products', name: 'products', component: ProductList },
             { path: 'product/:id', name: 'product-detail', component: ProductDetail },
             { path: 'cart', name: 'cart', component: Cart },

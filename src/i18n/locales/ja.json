@@ -99,6 +99,22 @@
     "select_coin": "通貨を選択",
     "error": "データの取得に失敗しました"
   },
+  "scratch": {
+    "title": "スクラッチカード",
+    "desc": "Canvas で実装したスクラッチカードゲーム。マウス・タッチ操作対応、当選履歴機能付き。",
+    "subtitle": "3枚のカードを削って運試し！",
+    "scratchHint": "ここを削る",
+    "revealAll": "全て開く",
+    "playAgain": "もう一度",
+    "historyTitle": "スクラッチ履歴",
+    "noRecords": "記録がありません",
+    "congrats": "おめでとうございます！",
+    "noWin": "残念、当選なし",
+    "noWinShort": "はずれ",
+    "win": "当選",
+    "winLabel": "件",
+    "miss": "またの機会に"
+  },
   "pcPlatform": {
     "title": "PCプラットフォーム・デモ",
     "desc": "プロフェッショナルなPC向けホワイトラベル・テンプレート2選。クリックで全デモを表示。",
